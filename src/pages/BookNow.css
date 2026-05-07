@@ -1,0 +1,299 @@
+.section-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.25rem;
+  opacity: 0.85;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.book-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+
+/* ── Page header ──────────────────────────────────── */
+.book-header {
+  background: linear-gradient(140deg, #3D6B40 0%, #2A4A2C 100%);
+  padding: 4.5rem 3rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-hd-deco-l { position: absolute; left: -10px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+.book-hd-deco-r { position: absolute; right: 100px; bottom: -10px; opacity: 0.3; pointer-events: none; }
+.book-hd-sp1 { position: absolute; top: 20%; right: 20%; animation: sp 3.5s ease-in-out infinite; pointer-events: none; }
+.book-hd-sp2 { position: absolute; bottom: 35%; left: 18%; animation: sp 4s ease-in-out infinite 1s; pointer-events: none; }
+.book-hd-sp3 { position: absolute; top: 60%; right: 35%; animation: sp 3s ease-in-out infinite 0.5s; pointer-events: none; }
+
+@keyframes sp {
+  0%, 100% { opacity: 0.35; transform: scale(0.8) rotate(0deg); }
+  50%       { opacity: 1;    transform: scale(1.25) rotate(12deg); }
+}
+
+.book-header-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #FDF8EE;
+  line-height: 1.1;
+  margin-top: 0.3rem;
+}
+
+.book-header-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: rgba(168,196,168,0.85);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  margin-top: 0.8rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Shared section styles ────────────────────────── */
+.book-section {
+  padding: 5.5rem 0;
+}
+
+.book-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+.book-section-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: #8B6B4E;
+  margin-top: 0.4rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Section 1: Contact ───────────────────────────── */
+.book-contact-section {
+  background: #FDF8EE;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+  align-items: stretch;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: white;
+  border: 2px solid #F5EDD8;
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
+  text-decoration: none;
+  transition: all 0.25s;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.contact-card:hover {
+  border-color: rgba(122,155,124,0.45);
+  box-shadow: 0 10px 30px rgba(61,107,64,0.12);
+  transform: translateY(-3px);
+}
+
+.contact-card-primary {
+  background: #3D6B40;
+  border-color: #3D6B40;
+}
+
+.contact-card-primary:hover {
+  background: #2A4A2C;
+  border-color: #2A4A2C;
+  box-shadow: 0 10px 30px rgba(61,107,64,0.3);
+}
+
+.contact-card-ico {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.contact-card:not(.contact-card-primary) .contact-card-ico { background: #F5EDD8; }
+
+.card-ico-img { width: 32px; height: 32px; object-fit: contain; transform: scale(1.8); }
+
+.contact-card-text { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
+
+.contact-card-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(253,248,238,0.7);
+}
+
+.contact-card:not(.contact-card-primary) .contact-card-label { color: #7A9B7C; }
+
+.contact-card-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: #FDF8EE;
+  font-weight: 600;
+}
+
+.contact-card-value.nowrap {
+  white-space: nowrap;
+}
+
+.contact-card:not(.contact-card-primary) .contact-card-value { color: #2C3E2D; font-size: 1.05rem; }
+
+.contact-card-arrow {
+  font-size: 1.4rem;
+  color: rgba(253,248,238,0.6);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.contact-card:not(.contact-card-primary) .contact-card-arrow { color: #A8C4A8; }
+.contact-card:hover .contact-card-arrow { transform: translateX(4px); }
+
+/* ── Section 2: How it works ──────────────────────── */
+.book-how-section {
+  background: #7A9B7C;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-deco-br {
+  position: absolute; bottom: 10px; right: 40px;
+  opacity: 0.18; pointer-events: none;
+}
+
+.about-deco-tl {
+  position: absolute; top: 20px; left: 20px;
+  opacity: 0.18; pointer-events: none;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 0;
+}
+
+.step {
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 18px;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.step-num {
+  width: 42px; height: 42px;
+  background: #FDF8EE;
+  color: #3D6B40;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 auto 0.9rem;
+}
+
+.step-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  color: #FDF8EE;
+  line-height: 1.55;
+}
+
+/* ── Section 3: FAQ ───────────────────────────────── */
+.book-faq-section {
+  background: #FDF8EE;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0;
+}
+
+.faq-item {
+  background: white;
+  border: 2px solid #F5EDD8;
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+  cursor: pointer;
+  transition: border-color 0.22s, box-shadow 0.22s;
+}
+
+.faq-item:hover,
+.faq-item.open {
+  border-color: rgba(122,155,124,0.4);
+  box-shadow: 0 4px 16px rgba(122,155,124,0.12);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: #2C3E2D;
+  font-weight: 600;
+}
+
+.faq-chevron {
+  font-size: 1.4rem;
+  color: #7A9B7C;
+  font-weight: 400;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.faq-answer {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #4A6B4C;
+  line-height: 1.7;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid #F5EDD8;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 900px) {
+  .book-header { padding: 3rem 1.5rem 3.5rem; }
+  .book-header-title { font-size: clamp(2.5rem, 8vw, 4rem); }
+  .book-section { padding: 3.5rem 0; }
+  .book-inner { padding: 0 1.5rem; }
+  .contact-cards { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .book-hd-deco-r { display: none; }
+}
+
+@media (max-width: 600px) {
+  .book-header { padding: 2.5rem 1.2rem 3rem; }
+  .book-section { padding: 3rem 0; }
+  .book-inner { padding: 0 1.2rem; }
+  .book-section-title { font-size: 1.7rem; }
+  .contact-card { padding: 1.4rem 1.2rem; gap: 0.9rem; }
+  .contact-card-ico { width: 46px; height: 46px; font-size: 1.6rem; }
+  .contact-card-value { font-size: 0.95rem; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .step { padding: 1.2rem 1rem; }
+  .faq-question { font-size: 0.95rem; }
+  .faq-item { padding: 1.2rem; }
+}
