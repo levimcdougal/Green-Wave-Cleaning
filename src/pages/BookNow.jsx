@@ -96,11 +96,11 @@ export default function BookNow() {
               </a>
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <a href="mailto:greenwavecleaningllc@gmail.com" className="contact-card">
+              <a href="mailto:greenwavecleanllc@gmail.com" className="contact-card">
                 <div className="contact-card-ico"><img src={envelopeImg} alt="email" className="card-ico-img" /></div>
                 <div className="contact-card-text">
                   <span className="contact-card-label">Send an Email</span>
-                  <span className="contact-card-value">greenwavecleaningllc@gmail.com</span>
+                  <span className="contact-card-value">greenwavecleanllc@gmail.com</span>
                 </div>
                 <span className="contact-card-arrow">→</span>
               </a>
