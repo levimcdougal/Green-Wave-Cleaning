@@ -69,7 +69,7 @@ export default function Home() {
                 Hi, I&apos;m <em>Chelsea!</em> I&apos;m a dedicated eco-friendly cleaning professional with over 4 years of hands-on experience providing reliable, detailed cleaning services for homes and businesses.
               </p>
               <p>
-                I specialize in residential and office cleaning, and also have experience in more intensive projects including hoarding situations and fire-related cleanups.
+                I specialize in residential and office cleaning, and I&apos;m experienced with a wide range of home and commercial spaces.
               </p>
               <p>
                 My goal is to create clean, healthy, and welcoming spaces while using environmentally conscious products and practices whenever possible. I believe a clean environment shouldn&apos;t come at the expense of your health or the planet, which is why I focus on safe, effective cleaning.
@@ -106,9 +106,9 @@ export default function Home() {
       <section className="home-services-preview">
         <div className="section-inner">
           <ScrollReveal>
-            <span className="section-label" style={{ color: '#7A9B7C' }}>What We Clean</span>
-            <h2 className="section-title" style={{ color: '#3D6B40' }}>We clean all kinds of homes</h2>
-            <p className="section-sub">Houses, apartments, condos, duplexes, trailers, manufactured homes — basically any kind of home!</p>
+            <span className="section-label" style={{ color: '#7A9B7C' }}>What We Offer</span>
+            <h2 className="section-title" style={{ color: '#3D6B40' }}>Our Services</h2>
+            <p className="section-sub">Residential, office, and move-in/move-out cleaning — eco-friendly every time</p>
           </ScrollReveal>
 
           <div className="preview-cards">

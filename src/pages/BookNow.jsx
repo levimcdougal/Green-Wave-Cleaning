@@ -77,7 +77,7 @@ const faqs = [
   },
   {
     q: 'What services do you offer?',
-    a: 'We offer residential cleaning, office cleaning, and move-in/move-out cleaning. We also have experience with more intensive projects including hoarding situations and fire-related cleanups.',
+    a: 'We offer residential cleaning, office cleaning, and move-in/move-out cleaning. Add-on services are also available — see our Services page for the full list.',
   },
   {
     q: 'How far in advance do I need to book?',
