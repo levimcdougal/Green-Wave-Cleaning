@@ -104,6 +104,12 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.4rem;
   margin-top: 3rem;
+  align-items: stretch;
+}
+
+.svc-grid .sr-hidden,
+.svc-grid .sr-visible {
+  height: 100%;
 }
 
 .svc-card {
@@ -116,6 +122,8 @@
   position: relative;
   overflow: hidden;
   font-family: 'Nunito', sans-serif;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .svc-card::after {
@@ -314,34 +322,103 @@
 
 .price-card.featured .btn-price:hover { background: white; }
 
+/* ── Pricing categories ───────────────────────────── */
+.price-category {
+  margin-top: 3.5rem;
+}
+
+.price-cat-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #2A4A2C;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgba(201,123,110,0.25);
+}
+
+.price-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  align-items: stretch;
+}
+
+/* ── Add-Ons ──────────────────────────────────────── */
+.svc-addons {
+  background: #F5EDD8;
+  padding: 6rem 3rem;
+}
+
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.addon-card {
+  background: white;
+  border: 2px solid #F5EDD8;
+  border-radius: 14px;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.22s;
+  font-family: 'Nunito', sans-serif;
+}
+
+.addon-card:hover {
+  border-color: rgba(122,155,124,0.4);
+  box-shadow: 0 4px 16px rgba(122,155,124,0.12);
+  transform: translateY(-2px);
+}
+
+.addon-name {
+  font-size: 0.92rem;
+  color: #2C3E2D;
+  font-weight: 600;
+}
+
+.addon-price {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  color: #3D6B40;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 /* ── Service Area ─────────────────────────────────── */
 .svc-area {
-  background: #FDF8EE;
+  background: #7A9B7C;
   padding: 5.5rem 3rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .area-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 1rem 1.2rem;
   margin-top: 2rem;
 }
 
 .area-chip {
-  background: white;
-  border: 2px solid #F5EDD8;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 50px;
-  padding: 0.45rem 1.1rem;
+  padding: 0.5rem 1.3rem;
   font-family: 'Nunito', sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
-  color: #4A6B4C;
+  color: #FDF8EE;
   transition: all 0.22s;
+  backdrop-filter: blur(4px);
 }
 
 .area-chip:hover {
-  border-color: rgba(122,155,124,0.45);
-  background: rgba(122,155,124,0.08);
+  background: rgba(255,255,255,0.28);
   transform: translateY(-2px);
 }
 
@@ -374,15 +451,20 @@
 .btn-leaf-img { width: 20px; height: 20px; object-fit: contain; display: inline-block; vertical-align: middle; margin-left: 0.3rem; transform: scale(1.8); transform-origin: center center; }
 
 /* ── Responsive ───────────────────────────────────── */
+.svc-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
 @media (max-width: 900px) {
   .svc-header { padding: 3rem 1.5rem 3.5rem; }
   .svc-header-title { font-size: clamp(2.5rem, 8vw, 4rem); }
   .svc-section,
   .svc-pricing,
+  .svc-addons,
   .svc-cta,
   .svc-area { padding: 3.5rem 1.5rem; }
-  .svc-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .svc-grid-3 { grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
   .price-grid-4 { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .price-grid-2 { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .addons-grid { grid-template-columns: 1fr 1fr; }
   .price-card.featured { transform: none; }
   .price-card.featured:hover { transform: translateY(-6px); }
   .svc-header-deco-r { display: none; }
@@ -392,10 +474,14 @@
   .svc-header { padding: 2.5rem 1.2rem 3rem; }
   .svc-section,
   .svc-pricing,
+  .svc-addons,
   .svc-cta,
   .svc-area { padding: 3rem 1.2rem; }
-  .svc-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+  .svc-grid-3 { grid-template-columns: 1fr; gap: 0.9rem; }
   .price-grid-4 { grid-template-columns: 1fr; }
+  .price-grid-2 { grid-template-columns: 1fr; }
+  .addons-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .addon-card { padding: 0.9rem 1rem; }
   .price-card { padding: 2rem 1.4rem; }
   .area-chips { gap: 0.5rem; }
   .area-chip { font-size: 0.82rem; padding: 0.38rem 0.9rem; }

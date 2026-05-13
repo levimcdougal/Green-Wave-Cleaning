@@ -65,19 +65,19 @@ const steps = [
 const faqs = [
   {
     q: 'How is pricing calculated?',
-    a: 'Pricing is based on your home\'s square footage. Basic cleaning starts at $0.05/sq. ft., pet-friendly at $0.10/sq. ft., deep cleaning at $0.15/sq. ft., and deep pet-friendly at $0.20/sq. ft.',
+    a: 'Pricing is based on square footage. Residential basic starts at $0.05/sq. ft., basic + pets $0.10, deep $0.15, deep + pets $0.20. Office maintenance is $0.18/sq. ft., deep office $0.35. Move-in/out basic is $0.35/sq. ft. and deep move-in/out is $0.60/sq. ft. Add-ons are also available — see our Services page for the full list.',
   },
   {
     q: 'What products do you use?',
-    a: 'We use Koala Eco products exclusively — safe, effective, and eco-friendly. They\'re non-toxic and safe for your family, pets, and the environment.',
+    a: 'We use safe, effective, eco-friendly cleaning products that are non-toxic and safe for your family, pets, and the environment. Feel free to ask us about our specific products when you book.',
   },
   {
     q: 'Do I need to be home during the cleaning?',
     a: 'Not at all! Many clients provide access and go about their day. We just need a way to get in and out safely.',
   },
   {
-    q: 'What types of homes do you clean?',
-    a: 'We clean houses, apartments, condos, duplexes, trailers, and manufactured homes — basically any kind of home!',
+    q: 'What services do you offer?',
+    a: 'We offer residential cleaning, office cleaning, and move-in/move-out cleaning. We also have experience with more intensive projects including hoarding situations and fire-related cleanups.',
   },
   {
     q: 'How far in advance do I need to book?',

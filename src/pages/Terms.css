@@ -1,0 +1,162 @@
+.terms-header {
+  background: linear-gradient(140deg, #3D6B40 0%, #2A4A2C 100%);
+  padding: 4.5rem 3rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.terms-hd-deco-l { position: absolute; left: -10px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+.terms-hd-sp1 { position: absolute; top: 20%; right: 22%; animation: spT 3.5s ease-in-out infinite; pointer-events: none; }
+.terms-hd-sp2 { position: absolute; bottom: 30%; left: 20%; animation: spT 4s ease-in-out infinite 1s; pointer-events: none; }
+
+@keyframes spT {
+  0%, 100% { opacity: 0.35; transform: scale(0.8) rotate(0deg); }
+  50%       { opacity: 1;    transform: scale(1.2) rotate(10deg); }
+}
+
+.terms-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.terms-company {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: rgba(168,196,168,0.85);
+  margin-bottom: 0.3rem;
+}
+
+.terms-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #FDF8EE;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.terms-date {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(168,196,168,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.terms-intro {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: rgba(245,237,216,0.85);
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+/* ── Body ─────────────────────────────────────────── */
+.terms-body {
+  background: #FDF8EE;
+  padding: 5rem 0 6rem;
+}
+
+.terms-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.terms-section {
+  background: white;
+  border-radius: 18px;
+  padding: 2rem 2.2rem;
+  border: 2px solid #F5EDD8;
+}
+
+.terms-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #2A4A2C;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.terms-num {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #7A9B7C;
+  flex-shrink: 0;
+}
+
+.terms-section-body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #4A6B4C;
+  line-height: 1.75;
+}
+
+.terms-section-body p { margin-bottom: 0.3rem; }
+.terms-spacer { height: 0.6rem; }
+
+.terms-bullet {
+  padding-left: 0.5rem;
+  color: #4A6B4C;
+}
+
+.terms-bullet::before {
+  content: '';
+}
+
+/* ── Contact block ────────────────────────────────── */
+.terms-contact {
+  background: white;
+  border-radius: 18px;
+  padding: 2rem 2.2rem;
+  border: 2px solid #F5EDD8;
+  margin-top: 2.5rem;
+}
+
+.terms-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.terms-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tci-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.73rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7A9B7C;
+}
+
+.terms-contact-item span:not(.tci-label),
+.terms-contact-item a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #2C3E2D;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.terms-contact-item a:hover { color: #3D6B40; }
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .terms-header { padding: 3rem 1.5rem 3.5rem; }
+  .terms-body { padding: 3.5rem 0 4rem; }
+  .terms-inner { padding: 0 1.2rem; }
+  .terms-section { padding: 1.5rem 1.2rem; }
+  .terms-contact-grid { grid-template-columns: 1fr; }
+}

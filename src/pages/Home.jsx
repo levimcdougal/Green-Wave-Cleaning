@@ -22,7 +22,7 @@ export default function Home() {
             </p></ScrollReveal>
             <ScrollReveal delay={200}><p className="hero-desc">
               Top-notch eco-friendly cleaning in Columbus, Ohio and surrounding areas.
-              I love keeping homes clean, safe, and welcoming — using Koala Eco products
+              Residential, office, and move-in/move-out cleaning using products
               that are kind to your family, your pets, and our planet.
             </p></ScrollReveal>
             <ScrollReveal delay={300}><div className="hero-btns">
@@ -66,13 +66,13 @@ export default function Home() {
           <div className="about-grid">
             <ScrollReveal delay={100}><div className="about-text">
               <p>
-                Hi, I&apos;m <em>Chelsea!</em> I love keeping homes clean, safe, and welcoming, and I always prioritize eco-friendly products to take care of your space and the planet.
+                Hi, I&apos;m <em>Chelsea!</em> I&apos;m a dedicated eco-friendly cleaning professional with over 4 years of hands-on experience providing reliable, detailed cleaning services for homes and businesses.
               </p>
               <p>
-                I do houses, apartments, condos, duplexes, trailers, and manufactured homes, basically <em>any kind of home!</em> Every space gets the same careful, detailed attention.
+                I specialize in residential and office cleaning, and also have experience in more intensive projects including hoarding situations and fire-related cleanups.
               </p>
               <p>
-                I use safe and effective eco-friendly products from <strong style={{ color: '#FDF8EE' }}>Koala Eco</strong>, good for your family, your pets, and our planet.
+                My goal is to create clean, healthy, and welcoming spaces while using environmentally conscious products and practices whenever possible. I believe a clean environment shouldn&apos;t come at the expense of your health or the planet, which is why I focus on safe, effective cleaning.
               </p>
               <p>
                 Proudly serving <strong style={{ color: '#FDF8EE' }}>Columbus, OH and surrounding areas</strong> including
@@ -83,7 +83,7 @@ export default function Home() {
             <div className="feature-grid">
               {[
                 { ico: null, img: leafImg, label: 'Eco-Friendly Products' },
-                { ico: null, img: houseImg, label: 'Any Type of Home' },
+                { ico: null, img: houseImg, label: 'Residential & Office' },
                 { ico: null, img: pawsImg, label: 'Pet-Safe Formulas' },
                 { ico: null, img: starImg, label: 'Deep & Detailed' },
               ].map((f, i) => (
@@ -113,12 +113,9 @@ export default function Home() {
 
           <div className="preview-cards">
             {[
-              { label: 'Houses' },
-              { label: 'Apartments' },
-              { label: 'Condos' },
-              { label: 'Duplexes' },
-              { label: 'Trailers' },
-              { label: 'Manufactured Homes' },
+              { label: 'Residential Cleaning' },
+              { label: 'Office Cleaning' },
+              { label: 'Move-In / Move-Out' },
             ].map(s => (
               <div key={s.label} className="preview-chip">
                 {s.label}
@@ -139,7 +136,7 @@ export default function Home() {
         <div className="home-cta-inner">
           <span className="section-label" style={{ color: 'rgba(168,196,168,0.8)' }}>Ready to get started?</span>
           <h2 className="home-cta-title">Book your eco-friendly cleaning today</h2>
-          <p className="home-cta-sub">Affordable rates · Koala Eco products · Columbus &amp; surrounding areas</p>
+          <p className="home-cta-sub">Affordable rates · Eco-friendly products · Columbus &amp; surrounding areas</p>
           <Link to="/book" className="btn-primary home-cta-btn">
             Book Now <img src={leafImg} alt="" className="btn-leaf-img" />
           </Link>
