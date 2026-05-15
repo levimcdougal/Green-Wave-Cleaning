@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Leaf, Mushroom, Flower, Sparkle, WaveDown, WaveUp } from '../components/Svgs'
 import phoneImg from '../assets/phone.png'
 import envelopeImg from '../assets/envelope.png'
@@ -6,54 +6,6 @@ import ScrollReveal from '../components/ScrollReveal'
 import '../styles/animations.css'
 import './BookNow.css'
 
-function CalEmbed() {
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.innerHTML = `
-      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-      Cal("init", {origin:"https://cal.com"});
-      Cal("inline", {
-        elementOrSelector:"#cal-booking-embed",
-        calLink: "green-wave-cleaning",
-        layout: "month_view"
-      });
-      Cal("ui", {"theme":"light","styles":{"branding":{"brandColor":"#3D6B40"}},"hideEventTypeDetails":true,"layout":"month_view"});
-    `
-    document.body.appendChild(script)
-
-    // Aggressively hide Cal.com branding
-    const hideBranding = () => {
-      document.querySelectorAll('a, div, span').forEach(el => {
-        if (el.textContent.trim() === 'Cal.com' || el.href === 'https://cal.com') {
-          el.style.setProperty('display', 'none', 'important')
-          if (el.parentElement && el.parentElement !== document.body) {
-            el.parentElement.style.setProperty('display', 'none', 'important')
-          }
-        }
-      })
-    }
-
-    const observer = new MutationObserver(hideBranding)
-    observer.observe(document.body, { childList: true, subtree: true })
-    const interval = setInterval(hideBranding, 500)
-    setTimeout(() => clearInterval(interval), 15000)
-
-    return () => {
-      if (document.body.contains(script)) document.body.removeChild(script)
-      observer.disconnect()
-      clearInterval(interval)
-    }
-  }, [])
-
-  return (
-    <div className="cal-embed-outer">
-      <div id="cal-booking-embed" className="cal-embed" />
-      <div className="cal-cover" />
-      <div className="cal-branding-block" />
-    </div>
-  )
-}
 
 const steps = [
   { n: '1', text: 'Reach out by call, text, or email' },
@@ -123,21 +75,6 @@ export default function BookNow() {
       </section>
 
       <WaveDown from="#2A4A2C" to="#FDF8EE" />
-
-      {/* ── Calendar ── */}
-      <section className="book-section book-cal-section">
-        <div className="book-inner">
-          <ScrollReveal>
-            <span className="section-label" style={{ color: '#7A9B7C' }}>Pick a Time</span>
-            <h2 className="book-section-title" style={{ color: '#3D6B40' }}>Book a Cleaning</h2>
-            <p className="book-section-sub">Choose a date and time that works for you</p>
-          </ScrollReveal>
-          <CalEmbed />
-        </div>
-        <div className="cal-section-cover" />
-      </section>
-
-      <WaveDown from="#FDF8EE" to="#F5EDD8" />
 
       {/* ── Section 1: Contact ── */}
       <section className="book-section book-contact-section">
