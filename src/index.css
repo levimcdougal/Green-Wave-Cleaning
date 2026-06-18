@@ -1,3 +1,16 @@
+:root {
+  --navy:        #1B3A63;
+  --navy-dark:   #122B4A;
+  --green:       #3D6B40;
+  --green-dark:  #2A4A2C;
+  --green-soft:  #E8F0E9;
+  --white:       #FFFFFF;
+  --offwhite:    #F7F9F7;
+  --border:      #E2E8E3;
+  --text:        #1F2D2A;
+  --text-mid:    #5B6B66;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +22,9 @@ html {
 }
 
 body {
-  background: #FDF8EE;
+  background: var(--white);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,4 +1,4 @@
-export const Leaf = ({ color = '#7A9B7C', size = 50, style = {} }) => (
+export const Leaf = ({ color = '#3D6B40', size = 50, style = {} }) => (
   <svg width={size} height={size * 1.2} viewBox="0 0 50 60" fill="none" style={style}>
     <path d="M25 4 Q46 18 41 44 Q31 56 25 58 Q19 56 9 44 Q4 18 25 4Z" fill={color} />
     <path d="M25 4 Q25 30 25 58" stroke="rgba(0,0,0,0.12)" strokeWidth="1.5" fill="none" />
@@ -7,50 +7,21 @@ export const Leaf = ({ color = '#7A9B7C', size = 50, style = {} }) => (
   </svg>
 )
 
-export const Mushroom = ({ size = 70 }) => (
-  <svg width={size} height={size * 1.1} viewBox="0 0 60 66" fill="none">
-    <path d="M24 42 Q22 55 25 63 Q30 66 35 63 Q38 55 36 42Z" fill="#E8D4BC" />
-    <path d="M9 36 Q9 20 30 17 Q51 20 51 36 Q51 48 30 48 Q9 48 9 36Z" fill="#C97B6E" />
-    <circle cx="22" cy="32" r="5" fill="white" opacity="0.72" />
-    <circle cx="38" cy="27" r="3.5" fill="white" opacity="0.72" />
-    <circle cx="31" cy="40" r="3" fill="white" opacity="0.72" />
-    <path d="M9 36 Q30 46 51 36" stroke="#B06558" strokeWidth="1" fill="none" opacity="0.35" />
+export const Check = ({ color = '#3D6B40', size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <path d="M5 12.5 L9.5 17 L19 6.5" stroke={color} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
-export const Sparkle = ({ color = '#C97B6E', size = 24 }) => (
-  <svg width={size} height={size} viewBox="0 0 30 30" fill="none">
-    <path d="M15 1 L17.2 12.8 L29 15 L17.2 17.2 L15 29 L12.8 17.2 L1 15 L12.8 12.8Z" fill={color} opacity="0.75" />
+export const Phone = ({ color = '#FFFFFF', size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <path d="M6.6 2.6 L10 2 C10.6 1.9 11.2 2.3 11.4 2.9 L12.6 6 C12.8 6.5 12.6 7.1 12.2 7.4 L10.2 9 C11.1 11.2 12.8 12.9 15 13.8 L16.6 11.8 C16.9 11.4 17.5 11.2 18 11.4 L21.1 12.6 C21.7 12.8 22.1 13.4 22 14 L21.4 17.4 C21.3 18 20.8 18.5 20.1 18.5 C10.7 18.5 5.5 13.3 5.5 3.9 C5.5 3.2 6 2.7 6.6 2.6Z" fill={color} />
   </svg>
 )
 
-export const Flower = ({ size = 52 }) => (
-  <svg width={size} height={size} viewBox="0 0 60 60" fill="none">
-    <ellipse cx="30" cy="11" rx="7" ry="11" fill="#ECC5BA" opacity="0.85" />
-    <ellipse cx="30" cy="49" rx="7" ry="11" fill="#ECC5BA" opacity="0.85" />
-    <ellipse cx="11" cy="30" rx="11" ry="7" fill="#ECC5BA" opacity="0.85" />
-    <ellipse cx="49" cy="30" rx="11" ry="7" fill="#ECC5BA" opacity="0.85" />
-    <ellipse cx="16" cy="16" rx="7" ry="11" fill="#ECC5BA" opacity="0.65" transform="rotate(-45 16 16)" />
-    <ellipse cx="44" cy="16" rx="7" ry="11" fill="#ECC5BA" opacity="0.65" transform="rotate(45 44 16)" />
-    <ellipse cx="16" cy="44" rx="7" ry="11" fill="#ECC5BA" opacity="0.65" transform="rotate(45 16 44)" />
-    <ellipse cx="44" cy="44" rx="7" ry="11" fill="#ECC5BA" opacity="0.65" transform="rotate(-45 44 44)" />
-    <circle cx="30" cy="30" r="10" fill="#F0C84A" opacity="0.9" />
-    <circle cx="30" cy="30" r="6"  fill="#DBA830" opacity="0.85" />
+export const Mail = ({ color = '#FFFFFF', size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <rect x="2.5" y="5" width="19" height="14" rx="2" fill="none" stroke={color} strokeWidth="1.8" />
+    <path d="M3.5 6.5 L12 13 L20.5 6.5" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
   </svg>
-)
-
-export const WaveDown = ({ from, to }) => (
-  <div style={{ background: from, lineHeight: 0, overflow: 'hidden' }}>
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: 70 }}>
-      <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70Z" fill={to} />
-    </svg>
-  </div>
-)
-
-export const WaveUp = ({ from, to }) => (
-  <div style={{ background: from, lineHeight: 0, overflow: 'hidden' }}>
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: 70 }}>
-      <path d="M0,35 C360,0 1080,70 1440,35 L1440,0 L0,0Z" fill={to} />
-    </svg>
-  </div>
 )

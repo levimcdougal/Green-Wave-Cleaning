@@ -1,5 +1,5 @@
 .footer {
-  background: #182B19;
+  background: var(--navy-dark);
   padding: 2.2rem 3rem;
   display: flex;
   align-items: center;
@@ -18,7 +18,7 @@
 }
 
 .footer-copy {
-  color: rgba(245, 237, 216, 0.42);
+  color: rgba(255, 255, 255, 0.45);
   font-size: 0.82rem;
 }
 
@@ -30,13 +30,14 @@
 }
 
 .footer-links a {
-  color: rgba(245, 237, 216, 0.5);
+  color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
   font-size: 0.82rem;
+  font-weight: 600;
   transition: color 0.2s;
 }
 
-.footer-links a:hover { color: rgba(168, 196, 168, 0.9); }
+.footer-links a:hover { color: var(--white); }
 
 @media (max-width: 700px) {
   .footer {

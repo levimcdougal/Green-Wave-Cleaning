@@ -1,61 +1,73 @@
 import { Link } from 'react-router-dom'
-import { Leaf, Mushroom, Sparkle, WaveDown, WaveUp } from '../components/Svgs'
 import ScrollReveal from '../components/ScrollReveal'
 import '../styles/animations.css'
-import deepImg from '../assets/Deep.png'
-import pawsImg from '../assets/paws.png'
 import leafImg from '../assets/leaf.png'
-import starImg from '../assets/star.png'
 import houseImg from '../assets/house.png'
 import apartImg from '../assets/apart.png'
 import boxImg from '../assets/box.png'
 import officeImg from '../assets/office.png'
+import sprayImg from '../assets/spray.png'
 import './Services.css'
 
 const services = [
   { img: houseImg, title: 'Residential Cleaning',   desc: 'Eco-friendly cleaning for homes of all sizes. Reliable, detailed, and safe for your family and pets.' },
-  { img: apartImg, title: 'Office Cleaning',         desc: 'Professional cleaning for offices and commercial spaces — maintenance and deep cleaning to keep your workspace fresh.' },
+  { img: officeImg, title: 'Commercial Cleaning',   desc: 'Professional cleaning for offices and businesses — maintenance and deep cleaning to keep your workspace fresh.' },
   { img: boxImg,   title: 'Move-In / Move-Out',      desc: 'Thorough cleaning before or after a move, ensuring your space is spotless and ready for the next chapter.' },
 ]
 
 const pricingCategories = [
   {
-    label: 'Residential Cleaning',
+    label: 'Residential Cleaning Rates',
+    note: 'One-time standard cleanings are designed for customers who do not require recurring service and are priced accordingly.',
     items: [
-      { img: leafImg, name: 'Basic Eco-Friendly Clean',   amount: '$0.05', unit: 'per sq. ft.', feats: ['Routine cleaning', 'General dusting & vacuuming', 'Kitchen & bathroom cleaning', 'Eco-friendly products'], featured: false },
-      { img: pawsImg, name: 'Basic Clean — Pet-Friendly', amount: '$0.10', unit: 'per sq. ft.', feats: ['Routine cleaning', 'Designed for homes with dogs, cats & other indoor pets', 'Pet-safe eco-friendly products', 'Pet hair removal & odor neutralizing'], featured: false },
-      { img: starImg, name: 'Deep Eco-Friendly Clean',    amount: '$0.15', unit: 'per sq. ft.', feats: ['Deep or first-time cleaning', 'Inside appliances & cabinets', 'Baseboards & detailed surfaces', 'Eco-friendly products'], featured: true, badge: 'Most Popular' },
-      { img: deepImg, name: 'Deep Clean — Pet-Friendly',  amount: '$0.20', unit: 'per sq. ft.', feats: ['Deep or first-time cleaning', 'Designed for homes with dogs, cats & other indoor pets', 'Pet-safe eco-friendly products', 'Pet hair removal & odor neutralizing'], featured: false },
+      { img: leafImg, name: 'Maintenance Clean', sub: 'Weekly / Bi-Weekly', amount: '$0.10', unit: 'per sq. ft.', feats: ['Kitchen & bathrooms', 'Dusting & vacuuming', 'Mopping all floors', 'Eco-friendly products'], featured: false },
+      { img: houseImg, name: 'Monthly Clean',     amount: '$0.12', unit: 'per sq. ft.', feats: ['Everything in Maintenance Clean', 'Extra attention for less frequent visits', 'Eco-friendly products'], featured: false },
+      { img: apartImg, name: 'One-Time Standard Clean', amount: '$0.15', unit: 'per sq. ft.', feats: ['For non-recurring service', 'Full kitchen & bathroom clean', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
+      { img: officeImg, name: 'Deep Clean',         amount: '$0.18', unit: 'per sq. ft.', feats: ['Baseboards & blinds dusted', 'Light fixtures & cobweb removal', 'Door frames, trim & outlets cleaned', 'Detailed floor edge cleaning'], featured: true, badge: 'Most Popular' },
+      { img: boxImg,  name: 'Move-In / Move-Out Clean', sub: 'Empty Homes Only', amount: '$0.25–$0.30', unit: 'per sq. ft.', feats: ['Inside & outside of appliances & cabinets', 'Detailed kitchen & bathroom scrub', 'Closets, windows & baseboards', 'Top-to-bottom clean'], featured: false },
     ],
   },
   {
-    label: 'Move-In / Move-Out',
+    label: 'Commercial Cleaning Rates',
+    note: 'After-hours cleaning (evenings/weekends) carries a +15% surcharge. Emergency, short-notice, and holiday service available by custom quote. Custom pricing available for recurring contracts and large facilities.',
     items: [
-      { img: houseImg, name: 'Basic Move-In/Out Clean', amount: '$0.35', unit: 'per sq. ft.', feats: ['Eco-friendly products', 'All standard surfaces', 'Kitchen & bathroom deep scrub', 'Ready for move-in or handoff'], featured: false },
-      { img: starImg, name: 'Deep Move-In/Out Clean',  amount: '$0.60', unit: 'per sq. ft.', feats: ['Everything in Basic', 'Inside appliances & cabinets', 'Baseboards & detailed surfaces', 'Most thorough clean available'], featured: false },
-    ],
-  },
-  {
-    label: 'Office Cleaning',
-    items: [
-      { img: officeImg, name: 'Office Maintenance Clean', amount: '$0.18', unit: 'per sq. ft.', feats: ['Routine upkeep', 'Desks, surfaces & floors', 'Restroom cleaning', 'Eco-friendly products'], featured: false },
-      { img: leafImg, name: 'Deep Office Clean',        amount: '$0.35', unit: 'per sq. ft.', feats: ['Thorough deep clean', 'Inside cabinets & storage areas', 'Detailed surface cleaning', 'Eco-friendly products'], featured: false },
+      { img: officeImg, name: 'Office Maintenance Cleaning', amount: '$0.20', unit: 'per sq. ft.', feats: ['Offices & workstations', 'Breakrooms & restrooms', 'Common area upkeep', 'Eco-friendly products'], featured: false },
+      { img: leafImg, name: 'Office Deep Cleaning', amount: '$0.40', unit: 'per sq. ft.', feats: ['Everything in Office Maintenance', 'Baseboards, blinds & vent covers', 'Interior glass & partitions', 'Deep clean restrooms & high-touch areas'], featured: false },
     ],
   },
 ]
 
-const addOns = [
-  { name: 'Wall Spot Washing',             price: '$50+' },
-  { name: 'Blind Dusting & Cleaning',      price: '$25' },
-  { name: 'Ceiling Fan Cleaning',          price: '$10 each' },
-  { name: 'Dishes',                        price: '$25' },
-  { name: 'Laundry Folding',               price: '$30' },
-  { name: 'Bed Linen Change',              price: '$10 per bed' },
-  { name: 'Balcony / Patio Sweep & Wipe',  price: '$40' },
-  { name: 'Inside Oven Cleaning',          price: '$45' },
-  { name: 'Inside Refrigerator Cleaning',  price: '$75' },
-  { name: 'Inside Cabinets & Drawers',     price: '$80' },
-  { name: 'Basement Cleaning',             price: '$100+' },
+const addOnGroups = [
+  {
+    label: 'Residential Add-Ons',
+    items: [
+      { name: 'Inside Oven',                       price: '$45' },
+      { name: 'Inside Refrigerator (Empty)',       price: '$50' },
+      { name: 'Inside Refrigerator (Contains Food)', price: '$75' },
+      { name: 'Laundry Folding',                    price: '$30' },
+      { name: 'Dishes',                             price: '$25' },
+      { name: 'Pet Hair Treatment',                 price: '$20–$75' },
+      { name: 'Ceiling Fan Dusting',                price: '$10 each' },
+      { name: 'Wall Washing',                       price: 'Starting at $50' },
+      { name: 'Basement Cleaning',                  price: 'Starting at $100' },
+      { name: 'Organization & Decluttering',        price: 'Custom Quote' },
+    ],
+  },
+  {
+    label: 'Commercial Add-Ons',
+    items: [
+      { name: 'Conference Room Detailing',          price: 'Starting at $50' },
+      { name: 'Inside Refrigerator (Empty)',        price: 'Starting at $50' },
+      { name: 'Inside Refrigerator (Contains Food)', price: '$75' },
+      { name: 'Inside Microwave Cleaning',          price: 'Starting at $15' },
+      { name: 'Baseboard Cleaning',                 price: 'Starting at $50' },
+      { name: 'Supply Restocking Assistance',       price: 'Starting at $25' },
+      { name: 'Ceiling Fan Dusting',                 price: '$10 per fan' },
+      { name: 'Wall Washing',                        price: 'Starting at $75' },
+      { name: 'After-Hours Cleaning (Evenings/Weekends)', price: '+15% Surcharge' },
+      { name: 'Move-In / Move-Out Office Cleaning', price: 'Custom Quote' },
+    ],
+  },
 ]
 
 const serviceArea = [
@@ -71,26 +83,19 @@ export default function Services() {
 
       {/* ── Page header ── */}
       <section className="svc-header">
-        <div className="svc-header-deco-l"><Leaf size={100} color="rgba(122,155,124,0.25)" /></div>
-        <div className="svc-header-deco-r"><Mushroom size={90} /></div>
-        <div className="svc-header-deco-sp1"><Sparkle size={22} color="#C97B6E" /></div>
-        <div className="svc-header-deco-sp2"><Sparkle size={16} color="#7A9B7C" /></div>
-
-        <div className="section-inner" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
-          <ScrollReveal delay={0}><span className="section-label" style={{ color: 'rgba(168,196,168,0.85)' }}>What We Offer</span></ScrollReveal>
+        <div className="section-inner" style={{ textAlign: 'center' }}>
+          <ScrollReveal delay={0}><span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>What We Offer</span></ScrollReveal>
           <ScrollReveal delay={100}><h1 className="svc-header-title">Services &amp; Rates</h1></ScrollReveal>
           <ScrollReveal delay={200}><p className="svc-header-sub">Eco-friendly cleaning for every need, at prices that make sense</p></ScrollReveal>
         </div>
       </section>
 
-      <WaveDown from="#2A4A2C" to="#FDF8EE" />
-
       {/* ── Services ── */}
       <section className="svc-section">
         <div className="section-inner">
-          <ScrollReveal><span className="section-label" style={{ color: '#7A9B7C' }}>What We Clean</span>
-          <h2 className="section-title" style={{ color: '#3D6B40' }}>Our Services</h2>
-          <p className="section-sub">Residential, office, and move-in/move-out cleaning</p></ScrollReveal>
+          <ScrollReveal><span className="section-label">What We Clean</span>
+          <h2 className="section-title">Our Services</h2>
+          <p className="section-sub">Residential, commercial, and move-in/move-out cleaning</p></ScrollReveal>
 
           <div className="svc-grid svc-grid-3">
             {services.map((s, i) => (
@@ -108,13 +113,11 @@ export default function Services() {
         </div>
       </section>
 
-      <WaveDown from="#FDF8EE" to="#ECC5BA" />
-
       {/* ── Pricing ── */}
       <section className="svc-pricing">
         <div className="section-inner">
-          <ScrollReveal><span className="section-label" style={{ color: '#C97B6E' }}>Transparent Pricing</span>
-          <h2 className="section-title" style={{ color: '#2A4A2C' }}>Simple, honest rates</h2>
+          <ScrollReveal><span className="section-label">Transparent Pricing</span>
+          <h2 className="section-title">Simple, honest rates</h2>
           <p className="section-sub">Priced per square foot — you only pay for what you need</p></ScrollReveal>
 
           {pricingCategories.map((cat) => (
@@ -127,6 +130,7 @@ export default function Services() {
                       {p.badge && <span className="price-badge">{p.badge}</span>}
                       {p.img ? <img src={p.img} alt="" className="price-img" /> : <span className="price-ico">{p.ico}</span>}
                       <h3 className="price-name">{p.name}</h3>
+                      {p.sub && <p className="price-sub">{p.sub}</p>}
                       <p className="price-amount">{p.amount}</p>
                       <p className="price-unit">{p.unit}</p>
                       <ul className="price-feats">
@@ -137,42 +141,44 @@ export default function Services() {
                   </ScrollReveal>
                 ))}
               </div>
+              {cat.note && <ScrollReveal><p className="price-note">{cat.note}</p></ScrollReveal>}
             </div>
           ))}
         </div>
       </section>
 
-      <WaveUp from="#ECC5BA" to="#F5EDD8" />
-
       {/* ── Add-Ons ── */}
       <section className="svc-addons">
         <div className="section-inner">
-          <ScrollReveal><span className="section-label" style={{ color: '#7A9B7C' }}>Customize Your Clean</span>
-          <h2 className="section-title" style={{ color: '#3D6B40' }}>Add-On Services</h2>
+          <ScrollReveal><span className="section-label">Customize Your Clean</span>
+          <h2 className="section-title">Add-On Services</h2>
           <p className="section-sub">Enhance any cleaning with these optional extras</p></ScrollReveal>
 
-          <div className="addons-grid">
-            {addOns.map((a, i) => (
-              <ScrollReveal key={a.name} delay={i * 40}>
-                <div className="addon-card">
-                  <span className="addon-name">{a.name}</span>
-                  <span className="addon-price">{a.price}</span>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          {addOnGroups.map((group) => (
+            <div key={group.label} className="addon-category">
+              <ScrollReveal><h3 className="price-cat-label">{group.label}</h3></ScrollReveal>
+              <div className="addons-grid">
+                {group.items.map((a, i) => (
+                  <ScrollReveal key={a.name} delay={i * 40}>
+                    <div className="addon-card">
+                      <span className="addon-name">{a.name}</span>
+                      <span className="addon-price">{a.price}</span>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
-
-      <WaveDown from="#F5EDD8" to="#7A9B7C" />
 
       {/* ── Service Area ── */}
       <section className="svc-area">
         <div className="section-inner">
           <ScrollReveal>
-            <span className="section-label" style={{ color: 'rgba(253,248,238,0.8)' }}>Where We Serve</span>
-            <h2 className="section-title" style={{ color: '#FDF8EE' }}>Service Area</h2>
-            <p className="section-sub" style={{ color: 'rgba(253,248,238,0.75)' }}>Serving Columbus, OH and all surrounding communities</p>
+            <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>Where We Serve</span>
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>Service Area</h2>
+            <p className="section-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Serving Columbus, OH and all surrounding communities</p>
           </ScrollReveal>
           <ScrollReveal>
             <div className="area-chips">
@@ -184,16 +190,14 @@ export default function Services() {
         </div>
       </section>
 
-      <WaveUp from="#7A9B7C" to="#2A4A2C" />
-
       {/* ── CTA ── */}
       <section className="svc-cta">
         <div className="section-inner" style={{ textAlign: 'center' }}>
-          <span className="section-label" style={{ color: 'rgba(168,196,168,0.8)' }}>Ready to book?</span>
+          <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>Ready to book?</span>
           <h2 className="svc-cta-title">Let&apos;s get your space sparkling</h2>
           <p className="svc-cta-sub">Eco-friendly · Columbus &amp; surrounding areas</p>
           <Link to="/book" className="btn-primary svc-cta-btn">
-            Book Now <img src={leafImg} alt="" className="btn-leaf-img" />
+            Book Now <img src={sprayImg} alt="" className="btn-leaf-img" />
           </Link>
         </div>
       </section>

@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Leaf, Mushroom, Flower, Sparkle, WaveDown, WaveUp } from '../components/Svgs'
-import phoneImg from '../assets/phone.png'
-import envelopeImg from '../assets/envelope.png'
+import { Phone, Mail } from '../components/Svgs'
 import ScrollReveal from '../components/ScrollReveal'
 import '../styles/animations.css'
 import './BookNow.css'
@@ -17,7 +15,7 @@ const steps = [
 const faqs = [
   {
     q: 'How is pricing calculated?',
-    a: 'Pricing is based on square footage. Residential basic starts at $0.05/sq. ft., basic + pets $0.10, deep $0.15, deep + pets $0.20. Office maintenance is $0.18/sq. ft., deep office $0.35. Move-in/out basic is $0.35/sq. ft. and deep move-in/out is $0.60/sq. ft. Add-ons are also available — see our Services page for the full list.',
+    a: 'Pricing is based on square footage. Residential maintenance cleans start at $0.10/sq. ft., monthly $0.12, one-time standard $0.15, and deep clean $0.18. Move-in/move-out cleans for empty homes run $0.25–$0.30/sq. ft. Commercial office maintenance is $0.20/sq. ft. and office deep cleaning is $0.40/sq. ft. Add-ons are also available — see our Services page for the full list.',
   },
   {
     q: 'What products do you use?',
@@ -60,13 +58,8 @@ export default function BookNow() {
 
       {/* ── Page header ── */}
       <section className="book-header">
-        <div className="book-hd-deco-l"><Leaf size={110} color="rgba(122,155,124,0.22)" /></div>
-        <div className="book-hd-deco-r"><Flower size={80} /></div>
-        <div className="book-hd-sp1"><Sparkle size={20} color="#ECC5BA" /></div>
-        <div className="book-hd-sp2"><Sparkle size={14} color="#A8C4A8" /></div>
-        <div className="book-hd-sp3"><Sparkle size={18} color="#C97B6E" /></div>
-        <div className="book-inner" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
-          <ScrollReveal delay={0}><span className="section-label" style={{ color: 'rgba(168,196,168,0.85)' }}>Let&apos;s Get Started</span></ScrollReveal>
+        <div className="book-inner" style={{ textAlign: 'center' }}>
+          <ScrollReveal delay={0}><span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>Let&apos;s Get Started</span></ScrollReveal>
           <ScrollReveal delay={100}><h1 className="book-header-title">Book Your Cleaning</h1></ScrollReveal>
           <ScrollReveal delay={200}><p className="book-header-sub">
             Ready for a spotless, eco-friendly home? Reach out and Chelsea will get back to you fast.
@@ -74,21 +67,19 @@ export default function BookNow() {
         </div>
       </section>
 
-      <WaveDown from="#2A4A2C" to="#FDF8EE" />
-
       {/* ── Section 1: Contact ── */}
       <section className="book-section book-contact-section">
         <div className="book-inner">
           <ScrollReveal>
-            <span className="section-label" style={{ color: '#7A9B7C' }}>Prefer to Talk?</span>
-            <h2 className="book-section-title" style={{ color: '#3D6B40' }}>Reach out to Chelsea</h2>
+            <span className="section-label">Prefer to Talk?</span>
+            <h2 className="book-section-title">Reach out to Chelsea</h2>
             <p className="book-section-sub">Call, text, or email — whatever works best for you</p>
           </ScrollReveal>
 
           <div className="contact-cards">
             <ScrollReveal delay={100}>
               <a href="tel:614-671-6041" className="contact-card contact-card-primary">
-                <div className="contact-card-ico"><img src={phoneImg} alt="phone" className="card-ico-img" /></div>
+                <div className="contact-card-ico"><Phone size={22} /></div>
                 <div className="contact-card-text">
                   <span className="contact-card-label">Call or Text</span>
                   <span className="contact-card-value">614-671-6041</span>
@@ -98,7 +89,7 @@ export default function BookNow() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <a href="mailto:greenwavecleanllc@gmail.com" className="contact-card">
-                <div className="contact-card-ico"><img src={envelopeImg} alt="email" className="card-ico-img" /></div>
+                <div className="contact-card-ico"><Mail size={20} /></div>
                 <div className="contact-card-text">
                   <span className="contact-card-label">Send an Email</span>
                   <span className="contact-card-value">greenwavecleanllc@gmail.com</span>
@@ -110,16 +101,12 @@ export default function BookNow() {
         </div>
       </section>
 
-      <WaveDown from="#FDF8EE" to="#7A9B7C" />
-
       {/* ── Section 2: How it works ── */}
       <section className="book-section book-how-section">
-        <div className="about-deco-br"><Mushroom size={110} /></div>
-        <div className="about-deco-tl"><Leaf size={80} color="#3D6B40" /></div>
-        <div className="book-inner" style={{ position: 'relative', zIndex: 2 }}>
-          <span className="section-label" style={{ color: 'rgba(253,248,238,0.8)' }}>Simple Process</span>
-          <h2 className="book-section-title" style={{ color: '#FDF8EE' }}>How it works</h2>
-          <p className="book-section-sub" style={{ color: 'rgba(253,248,238,0.75)' }}>Getting a clean home is easy — here&apos;s what to expect</p>
+        <div className="book-inner">
+          <span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>Simple Process</span>
+          <h2 className="book-section-title" style={{ color: '#FFFFFF' }}>How it works</h2>
+          <p className="book-section-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Getting a clean home is easy — here&apos;s what to expect</p>
 
           <div className="steps">
             {steps.map((s, i) => (
@@ -134,13 +121,11 @@ export default function BookNow() {
         </div>
       </section>
 
-      <WaveUp from="#7A9B7C" to="#FDF8EE" />
-
       {/* ── Section 3: FAQ ── */}
       <section className="book-section book-faq-section">
         <div className="book-inner">
-          <span className="section-label" style={{ color: '#C97B6E' }}>Common Questions</span>
-          <h2 className="book-section-title" style={{ color: '#3D6B40' }}>Frequently Asked Questions</h2>
+          <span className="section-label">Common Questions</span>
+          <h2 className="book-section-title">Frequently Asked Questions</h2>
           <p className="book-section-sub">Everything you need to know before booking</p>
 
           <div className="faq-list">

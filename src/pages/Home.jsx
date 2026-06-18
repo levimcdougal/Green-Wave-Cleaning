@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Leaf, Mushroom, Sparkle, Flower, WaveDown, WaveUp } from '../components/Svgs'
 import ScrollReveal from '../components/ScrollReveal'
-import starImg from '../assets/star.png'
-import houseImg from '../assets/house.png'
 import leafImg from '../assets/leaf.png'
+import houseImg from '../assets/house.png'
 import pawsImg from '../assets/paws.png'
+import starImg from '../assets/star.png'
+import logoImg from '../assets/logo.png'
+import sprayImg from '../assets/spray.png'
 import '../styles/animations.css'
 import './Home.css'
 
@@ -16,9 +17,9 @@ export default function Home() {
       <section className="home-hero">
         <div className="home-hero-inner">
           <div className="hero-copy">
-            <ScrollReveal delay={0}><h1 className="hero-title">GreenWave<br />Cleaning</h1></ScrollReveal>
+            <ScrollReveal delay={0}><h1 className="hero-title">GreenWave Cleaning</h1></ScrollReveal>
             <ScrollReveal delay={100}><p className="hero-tagline">
-              Prioritizing eco-friendly products to take care of<br />your space <em>and</em> the planet
+              Prioritizing eco-friendly products to take care of your space <em>and</em> the planet
             </p></ScrollReveal>
             <ScrollReveal delay={200}><p className="hero-desc">
               Top-notch eco-friendly cleaning in Columbus, Ohio and surrounding areas.
@@ -31,36 +32,20 @@ export default function Home() {
             </div></ScrollReveal>
           </div>
 
-          {/* Floating nature illustration */}
+          {/* Hero logo panel */}
           <div className="hero-art">
             <div className="art-circle" />
-            <div className="art-el" style={{ top: '8%',   right: '12%', animationDelay: '0s',   animationDuration: '8s'  }}><Mushroom size={95} /></div>
-            <div className="art-el" style={{ top: '6%',   left:  '18%', animationDelay: '1.2s', animationDuration: '9s'  }}><Leaf size={58} color="#5B8A5E" /></div>
-            <div className="art-el" style={{ bottom: '12%', right: '8%', animationDelay: '2s',  animationDuration: '7s'  }}><Leaf size={44} color="#7A9B7C" /></div>
-            <div className="art-el" style={{ bottom: '22%', left:  '10%', animationDelay: '0.5s', animationDuration: '10s' }}><Leaf size={34} color="#A8C4A8" /></div>
-            <div className="art-el" style={{ bottom: '28%', right: '22%', animationDelay: '1.5s', animationDuration: '7.5s' }}><Mushroom size={52} /></div>
-            <div className="art-el" style={{ top: '32%',  left:  '26%', animationDelay: '3s',   animationDuration: '8.5s' }}><Flower size={54} /></div>
-            <div className="art-el" style={{ bottom: '10%', left: '32%', animationDelay: '1.8s', animationDuration: '11s'  }}><Flower size={34} /></div>
-            <div className="art-el sp" style={{ top: '14%',   right: '28%', animationDelay: '0s'   }}><Sparkle size={26} color="#C97B6E" /></div>
-            <div className="art-el sp" style={{ top: '48%',   right: '4%',  animationDelay: '1s'   }}><Sparkle size={18} color="#7A9B7C" /></div>
-            <div className="art-el sp" style={{ bottom: '38%', left:  '5%', animationDelay: '2.2s' }}><Sparkle size={22} color="#C97B6E" /></div>
-            <div className="art-el sp" style={{ bottom: '8%',  right: '18%', animationDelay: '0.6s' }}><Sparkle size={15} color="#3D6B40" /></div>
-            <div className="art-el sp" style={{ top: '22%',   left:  '8%',  animationDelay: '1.4s' }}><Sparkle size={14} color="#8B6B4E" /></div>
+            <img src={logoImg} alt="GreenWave Cleaning" className="hero-logo-img" />
           </div>
         </div>
       </section>
 
-      <WaveDown from="#F5EDD8" to="#7A9B7C" />
-
       {/* ── About ── */}
       <section className="home-about">
-        <div className="about-deco about-deco-br"><Mushroom size={130} /></div>
-        <div className="about-deco about-deco-tl"><Leaf size={90} color="#3D6B40" /></div>
-
         <div className="section-inner">
           <ScrollReveal>
             <span className="section-label">Who We Are</span>
-            <h2 className="section-title">Cleaning that cares for<br />your home &amp; the planet</h2>
+            <h2 className="section-title">Cleaning that cares for your home &amp; the planet</h2>
           </ScrollReveal>
 
           <div className="about-grid">
@@ -75,7 +60,7 @@ export default function Home() {
                 My goal is to create clean, healthy, and welcoming spaces while using environmentally conscious products and practices whenever possible. I believe a clean environment shouldn&apos;t come at the expense of your health or the planet, which is why I focus on safe, effective cleaning.
               </p>
               <p>
-                Proudly serving <strong style={{ color: '#FDF8EE' }}>Columbus, OH and surrounding areas</strong> including
+                Proudly serving <strong style={{ color: '#FFFFFF' }}>Columbus, OH and surrounding areas</strong> including
                 Gahanna, Westerville, Dublin, Hilliard, Reynoldsburg, Delaware, Pickerington, Grove City, Lancaster, and more.
               </p>
             </div></ScrollReveal>
@@ -100,14 +85,12 @@ export default function Home() {
         </div>
       </section>
 
-      <WaveUp from="#7A9B7C" to="#FDF8EE" />
-
       {/* ── Services preview ── */}
       <section className="home-services-preview">
         <div className="section-inner">
           <ScrollReveal>
-            <span className="section-label" style={{ color: '#7A9B7C' }}>What We Offer</span>
-            <h2 className="section-title" style={{ color: '#3D6B40' }}>Our Services</h2>
+            <span className="section-label" style={{ color: 'var(--green)' }}>What We Offer</span>
+            <h2 className="section-title" style={{ color: 'var(--navy)' }}>Our Services</h2>
             <p className="section-sub">Residential, office, and move-in/move-out cleaning — eco-friendly every time</p>
           </ScrollReveal>
 
@@ -131,14 +114,12 @@ export default function Home() {
 
       {/* ── CTA banner ── */}
       <section className="home-cta">
-        <div className="home-cta-deco-l"><Leaf size={110} color="rgba(168,196,168,0.2)" /></div>
-        <div className="home-cta-deco-r"><Mushroom size={100} /></div>
         <div className="home-cta-inner">
-          <span className="section-label" style={{ color: 'rgba(168,196,168,0.8)' }}>Ready to get started?</span>
+          <span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>Ready to get started?</span>
           <h2 className="home-cta-title">Book your eco-friendly cleaning today</h2>
           <p className="home-cta-sub">Affordable rates · Eco-friendly products · Columbus &amp; surrounding areas</p>
           <Link to="/book" className="btn-primary home-cta-btn">
-            Book Now <img src={leafImg} alt="" className="btn-leaf-img" />
+            Book Now <img src={sprayImg} alt="" className="btn-leaf-img" />
           </Link>
         </div>
       </section>

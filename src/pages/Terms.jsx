@@ -1,4 +1,3 @@
-import { Leaf, Sparkle } from '../components/Svgs'
 import './Terms.css'
 
 const sections = [
@@ -74,10 +73,7 @@ export default function Terms() {
 
       {/* ── Header ── */}
       <section className="terms-header">
-        <div className="terms-hd-deco-l"><Leaf size={100} color="rgba(122,155,124,0.2)" /></div>
-        <div className="terms-hd-sp1"><Sparkle size={18} color="#ECC5BA" /></div>
-        <div className="terms-hd-sp2"><Sparkle size={14} color="#A8C4A8" /></div>
-        <div className="terms-inner" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="terms-inner">
           <p className="terms-company">GreenWave Cleaning LLC</p>
           <h1 className="terms-title">Terms of Service</h1>
           <p className="terms-date">Effective Date: May 5, 2026</p>
