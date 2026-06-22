@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Phone, Mail } from '../components/Svgs'
+import { Phone, Mail, Clock } from '../components/Svgs'
+import apartImg from '../assets/apart.png'
 import ScrollReveal from '../components/ScrollReveal'
 import '../styles/animations.css'
 import './BookNow.css'
@@ -31,11 +32,15 @@ const faqs = [
   },
   {
     q: 'How far in advance do I need to book?',
-    a: 'We recommend reaching out a few days ahead, but we\'ll always do our best to accommodate last-minute requests when possible.',
+    a: 'For our regular Monday–Thursday booking hours, we recommend reaching out a few days ahead, and we\'ll always do our best to accommodate last-minute requests when possible. Weekend appointments and other flexible scheduling options are available upon request with at least 2 weeks\' advance notice.',
   },
   {
     q: 'What areas do you serve?',
     a: 'We serve Columbus, OH and surrounding areas including Gahanna, Westerville, Dublin, Hilliard, Reynoldsburg, Delaware, Pickerington, Grove City, Lancaster, and more.',
+  },
+  {
+    q: 'What payment methods do you accept?',
+    a: 'We accept credit/debit cards, electronic payments, and cash. We do not accept personal checks.',
   },
 ]
 
@@ -96,6 +101,41 @@ export default function BookNow() {
                 </div>
                 <span className="contact-card-arrow">→</span>
               </a>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Hours & Availability ── */}
+      <section className="book-section book-hours-section">
+        <div className="book-inner">
+          <ScrollReveal>
+            <span className="section-label">When We Work</span>
+            <h2 className="book-section-title">Hours &amp; Availability</h2>
+            <p className="book-section-sub">Here&apos;s when you can typically reach us and get booked</p>
+          </ScrollReveal>
+
+          <div className="hours-cards">
+            <ScrollReveal delay={100}>
+              <div className="hours-card">
+                <div className="hours-card-ico"><Clock size={22} /></div>
+                <div className="hours-card-text">
+                  <span className="hours-card-label">Regular Booking Hours</span>
+                  <span className="hours-card-value">10:00 AM – 2:00 PM EST</span>
+                  <span className="hours-card-value">4:00 PM – 8:00 PM EST</span>
+                  <span className="hours-card-days">Monday – Thursday</span>
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <div className="hours-card">
+                <div className="hours-card-ico"><img src={apartImg} alt="" className="hours-card-img" /></div>
+                <div className="hours-card-text">
+                  <span className="hours-card-label">Weekend &amp; Flexible Scheduling</span>
+                  <span className="hours-card-value">Available upon request</span>
+                  <span className="hours-card-days">With at least 2 weeks&apos; advance notice</span>
+                </div>
+              </div>
             </ScrollReveal>
           </div>
         </div>

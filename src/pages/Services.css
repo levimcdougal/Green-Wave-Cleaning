@@ -340,9 +340,143 @@
   height: 100%;
 }
 
+/* ── Full Service Menu ─────────────────────────────── */
+.svc-menu {
+  background: var(--white);
+  padding: 6rem 3rem;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 3rem;
+}
+
+.menu-item {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  cursor: pointer;
+  transition: border-color 0.22s, box-shadow 0.22s;
+}
+
+.menu-item:hover,
+.menu-item.open {
+  border-color: var(--green);
+  box-shadow: 0 4px 16px rgba(61,107,64,0.1);
+}
+
+.menu-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.menu-chevron {
+  font-size: 1.4rem;
+  color: var(--green);
+  font-weight: 400;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.menu-body {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+}
+
+.menu-note {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+.menu-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.menu-group h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+
+.menu-group ul,
+.menu-flat,
+.menu-highlight ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-group li,
+.menu-flat li,
+.menu-highlight li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text);
+  padding: 0.3rem 0;
+}
+
+.menu-group li svg,
+.menu-flat li svg,
+.menu-highlight li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.menu-flat {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 1.6rem;
+}
+
+.menu-highlight {
+  background: var(--green-soft);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  margin-top: 1.4rem;
+}
+
+.menu-highlight h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--green-dark);
+  margin-bottom: 0.5rem;
+}
+
+.menu-perfect {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  margin-top: 1rem;
+}
+
+.menu-perfect strong { color: var(--navy); }
+
 /* ── Add-Ons ──────────────────────────────────────── */
 .svc-addons {
-  background: var(--white);
+  background: var(--offwhite);
   padding: 6rem 3rem;
 }
 
@@ -456,6 +590,7 @@
   .svc-header { padding: 3rem 1.5rem 3.5rem; }
   .svc-section,
   .svc-pricing,
+  .svc-menu,
   .svc-addons,
   .svc-cta,
   .svc-area { padding: 3.5rem 1.5rem; }
@@ -471,6 +606,7 @@
   .svc-header { padding: 2.5rem 1.2rem 3rem; }
   .svc-section,
   .svc-pricing,
+  .svc-menu,
   .svc-addons,
   .svc-cta,
   .svc-area { padding: 3rem 1.2rem; }
@@ -483,4 +619,8 @@
   .area-chips { gap: 0.5rem; }
   .area-chip { font-size: 0.82rem; padding: 0.38rem 0.9rem; }
   .svc-cta-title { font-size: 1.6rem; }
+  .menu-groups,
+  .menu-flat { grid-template-columns: 1fr; gap: 0; }
+  .menu-question { font-size: 0.95rem; }
+  .menu-item { padding: 1.2rem; }
 }

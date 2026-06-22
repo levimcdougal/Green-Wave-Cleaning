@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Check } from '../components/Svgs'
 import ScrollReveal from '../components/ScrollReveal'
 import '../styles/animations.css'
 import leafImg from '../assets/leaf.png'
@@ -69,6 +71,99 @@ const addOnGroups = [
     ],
   },
 ]
+
+const serviceMenu = [
+  {
+    name: 'Maintenance, Monthly & One-Time Standard Clean',
+    note: 'The same detailed checklist every visit — whether it’s weekly, bi-weekly, monthly, or a single one-time clean.',
+    groups: [
+      { label: 'Kitchen', items: ['Countertops & backsplash', 'Sink & faucet', 'Appliance exteriors', 'Microwave interior', 'Vacuum & mop floors'] },
+      { label: 'Bathrooms', items: ['Toilets, sinks & mirrors', 'Showers & tubs', 'Trash removal', 'Vacuum & mop floors'] },
+      { label: 'Bedrooms & Living Areas', items: ['Dusting', 'Mirrors & glass', 'Vacuuming', 'Mopping', 'Bed making upon request'] },
+      { label: 'Throughout the Home', items: ['Light switches & door touchpoints', 'Empty trash cans', 'Vacuum & mop accessible floors'] },
+    ],
+  },
+  {
+    name: 'Deep Clean',
+    note: 'Includes everything in the Maintenance Clean, plus:',
+    flatItems: ['Baseboards', 'Blinds', 'Light fixtures', 'Door frames & trim', 'Cobweb removal', 'Outlet covers & switches', 'Detailed floor edges', 'Extra attention to buildup', 'Thorough cleaning of all areas'],
+  },
+  {
+    name: 'Move-In / Move-Out Clean',
+    note: 'A detailed top-to-bottom cleaning to prepare a home for new occupants or leave it move-out ready.',
+    groups: [
+      { label: 'Kitchen', items: ['Clean & sanitize countertops and backsplash', 'Inside & outside of refrigerator', 'Inside & outside of oven', 'Inside & outside of microwave', 'Inside dishwasher (if applicable)', 'Cabinets, drawers & handles', 'Deep clean stovetop', 'Vacuum & mop floors'] },
+      { label: 'Bathrooms', items: ['Deep sanitizing of toilets, sinks, tubs & showers', 'Remove soap scum & buildup', 'Mirrors & fixtures', 'Cabinets & drawers', 'Vacuum & mop floors'] },
+      { label: 'Throughout the Home', items: ['Closets & shelving', 'Window sills & tracks', 'Doors, trim & baseboards', 'Ceiling fans (reachable areas)', 'Remove cobwebs', 'Vacuum carpets & floors', 'Mop hard floors', 'Spot-clean walls as needed'] },
+    ],
+    highlight: { label: 'Included at No Additional Charge', items: ['Refrigerator (inside & out)', 'Oven (inside & out)', 'Microwave (inside & out)', 'Dishwasher (if applicable)'] },
+    perfectFor: ['Home Buyers', 'Home Sellers', 'Renters', 'Property Managers', 'Realtors', 'Landlords'],
+  },
+  {
+    name: 'Office Cleaning',
+    note: 'Routine maintenance cleaning to keep your workspace fresh and welcoming.',
+    groups: [
+      { label: 'Offices & Workstations', items: ['Dust desks & work surfaces', 'Wipe high-touch surfaces', 'Empty trash & replace liners', 'Vacuum carpets & rugs', 'Mop hard floors'] },
+      { label: 'Breakrooms & Kitchenettes', items: ['Sanitize counters', 'Clean sinks & faucets', 'Wipe appliance exteriors', 'Clean tables & chairs'] },
+      { label: 'Restrooms', items: ['Clean & disinfect toilets and urinals', 'Clean sinks & countertops', 'Clean mirrors', 'Refill paper products (client supplied)'] },
+      { label: 'Common Areas', items: ['Dust surfaces', 'Interior glass doors', 'Spot-clean doors & switches'] },
+    ],
+  },
+  {
+    name: 'Office Deep Cleaning',
+    note: 'Includes everything in Office Cleaning, plus:',
+    flatItems: ['Baseboards', 'Blinds & window sills', 'Door frames', 'Interior glass partitions', 'Vent covers', 'Refrigerator interior cleaning', 'Microwave interior cleaning', 'Deep restroom detailing', 'Detailed floor cleaning', 'Extra attention to buildup & neglected areas'],
+  },
+]
+
+function ServiceMenuItem({ item }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className={`menu-item${open ? ' open' : ''}`} onClick={() => setOpen(!open)}>
+      <div className="menu-question">
+        <span>{item.name}</span>
+        <span className="menu-chevron">{open ? '−' : '+'}</span>
+      </div>
+      {open && (
+        <div className="menu-body">
+          {item.note && <p className="menu-note">{item.note}</p>}
+
+          {item.groups && (
+            <div className="menu-groups">
+              {item.groups.map(g => (
+                <div key={g.label} className="menu-group">
+                  <h4>{g.label}</h4>
+                  <ul>
+                    {g.items.map(i => <li key={i}><Check size={14} /> {i}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {item.flatItems && (
+            <ul className="menu-flat">
+              {item.flatItems.map(i => <li key={i}><Check size={14} /> {i}</li>)}
+            </ul>
+          )}
+
+          {item.highlight && (
+            <div className="menu-highlight">
+              <h4>{item.highlight.label}</h4>
+              <ul>
+                {item.highlight.items.map(i => <li key={i}><Check size={14} /> {i}</li>)}
+              </ul>
+            </div>
+          )}
+
+          {item.perfectFor && (
+            <p className="menu-perfect"><strong>Perfect for:</strong> {item.perfectFor.join(', ')}</p>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
 
 const serviceArea = [
   'Columbus, OH', 'Franklin County, OH', 'Delaware, OH', 'Delaware County, OH',
@@ -144,6 +239,23 @@ export default function Services() {
               {cat.note && <ScrollReveal><p className="price-note">{cat.note}</p></ScrollReveal>}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Full Service Menu ── */}
+      <section className="svc-menu">
+        <div className="section-inner">
+          <ScrollReveal><span className="section-label">What&apos;s Included</span>
+          <h2 className="section-title">Full Service Menu</h2>
+          <p className="section-sub">Tap a service below to see everything that&apos;s included</p></ScrollReveal>
+
+          <div className="menu-list">
+            {serviceMenu.map((item, i) => (
+              <ScrollReveal key={item.name} delay={i * 60}>
+                <ServiceMenuItem item={item} />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

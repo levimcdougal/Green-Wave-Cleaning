@@ -11,7 +11,7 @@ const sections = [
   },
   {
     n: '3', title: 'Pricing & Payment',
-    content: `Prices are based on factors including:\n• Property size\n• Service type\n• Condition of the property\n• Frequency of service\n• Additional requested tasks\n\nPayment is due upon completion of services unless otherwise agreed in writing.\n\nWe may accept credit/debit cards, electronic payments, and cash.\n\nLate payments may incur additional fees. Returned payments or chargebacks may result in suspension of future services.`,
+    content: `Prices are based on factors including:\n• Property size\n• Service type\n• Condition of the property\n• Frequency of service\n• Additional requested tasks\n\nPayment is due upon completion of services unless otherwise agreed in writing.\n\nWe may accept credit/debit cards, electronic payments, and cash. We do not accept personal checks.\n\nLate payments may incur additional fees. Returned payments or chargebacks may result in suspension of future services.`,
   },
   {
     n: '4', title: 'Cancellations & Rescheduling',

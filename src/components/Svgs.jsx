@@ -25,3 +25,10 @@ export const Mail = ({ color = '#FFFFFF', size = 20 }) => (
     <path d="M3.5 6.5 L12 13 L20.5 6.5" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
   </svg>
 )
+
+export const Clock = ({ color = '#FFFFFF', size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="9.2" stroke={color} strokeWidth="1.8" fill="none" />
+    <path d="M12 7 L12 12 L15.5 14" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+  </svg>
+)
