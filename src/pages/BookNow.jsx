@@ -42,6 +42,10 @@ const faqs = [
     q: 'What payment methods do you accept?',
     a: 'We accept credit/debit cards, electronic payments, and cash. We do not accept personal checks.',
   },
+  {
+    q: 'Do you require a deposit, and what is your cancellation policy?',
+    a: 'A 50% deposit is required to reserve every appointment, which is applied toward your final balance on the day of service. Cancellations made more than 48 hours before your appointment incur no fee. Cancellations within 24 hours are charged 25% of the service total, and same-day cancellations — or cancellations after we\'ve begun traveling to your property, or if we can\'t access the property at the scheduled time — are charged 50% of the service total. Any applicable fee is deducted from your deposit; the rest is refunded or credited. See our Terms of Service for full details.',
+  },
 ]
 
 function FaqItem({ q, a }) {
