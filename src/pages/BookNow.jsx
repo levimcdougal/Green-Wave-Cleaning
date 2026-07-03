@@ -35,16 +35,20 @@ const faqs = [
     a: 'For our regular Monday–Thursday booking hours, we recommend reaching out a few days ahead, and we\'ll always do our best to accommodate last-minute requests when possible. Weekend appointments and other flexible scheduling options are available upon request with at least 2 weeks\' advance notice.',
   },
   {
+    q: 'How long will my cleaning take?',
+    a: 'Cleaning times vary by service type and home size. Maintenance cleans generally run 1.5–5 hours, deep cleans 3–8+ hours, and move-in/move-out cleans 3–8+ hours depending on square footage. Our priority is quality, not speed — we take the time needed to do the job right. See our Terms of Service for a full breakdown of estimated times by service type.',
+  },
+  {
     q: 'What areas do you serve?',
     a: 'We serve Columbus, OH and surrounding areas including Gahanna, Westerville, Dublin, Hilliard, Reynoldsburg, Delaware, Pickerington, Grove City, Lancaster, and more.',
   },
   {
     q: 'What payment methods do you accept?',
-    a: 'We accept credit/debit cards, electronic payments, and cash. We do not accept personal checks.',
+    a: 'All payments are securely processed through Stripe. We do not accept personal checks.',
   },
   {
     q: 'Do you require a deposit, and what is your cancellation policy?',
-    a: 'A 50% deposit is required to reserve every appointment, which is applied toward your final balance on the day of service. Cancellations made more than 48 hours before your appointment incur no fee. Cancellations within 24 hours are charged 25% of the service total, and same-day cancellations — or cancellations after we\'ve begun traveling to your property, or if we can\'t access the property at the scheduled time — are charged 50% of the service total. Any applicable fee is deducted from your deposit; the rest is refunded or credited. See our Terms of Service for full details.',
+    a: 'A 50% deposit is required to reserve every appointment, processed securely through Stripe. Cancellations more than 48 hours before your appointment receive a full deposit refund. Cancellations between 24 and 48 hours before your appointment result in 50% of your deposit being retained. Cancellations within 24 hours — including same-day — result in the entire deposit being retained. If our team arrives and is unable to access the property or the appointment cannot be completed due to a client-related circumstance, you are responsible for 100% of the total scheduled service price. Rescheduling requests made within 48 hours of your appointment are treated as cancellations. See our Terms of Service for full details.',
   },
 ]
 
