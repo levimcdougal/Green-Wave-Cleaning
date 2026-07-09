@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import './Nav.css'
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const { pathname } = useLocation()
-
-  // close menu on route change
-  useEffect(() => setOpen(false), [pathname])
 
   // prevent body scroll when menu open
   useEffect(() => {
@@ -39,9 +35,9 @@ export default function Nav() {
       {/* Mobile menu overlay */}
       <div className={`mobile-menu${open ? ' is-open' : ''}`}>
         <ul>
-          <li><NavLink to="/" end>Home</NavLink></li>
-          <li><NavLink to="/services">Services</NavLink></li>
-          <li><NavLink to="/book" className="mobile-cta">Book Now</NavLink></li>
+          <li><NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink></li>
+          <li><NavLink to="/services" onClick={() => setOpen(false)}>Services</NavLink></li>
+          <li><NavLink to="/book" className="mobile-cta" onClick={() => setOpen(false)}>Book Now</NavLink></li>
         </ul>
       </div>
     </>

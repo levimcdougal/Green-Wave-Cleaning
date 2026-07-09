@@ -23,7 +23,7 @@ export default function Home() {
             </p></ScrollReveal>
             <ScrollReveal delay={200}><p className="hero-desc">
               Top-notch eco-friendly cleaning in Columbus, Ohio and surrounding areas.
-              Residential, office, and move-in/move-out cleaning using products
+              Residential, office, move-in/move-out, and real estate listing-prep cleaning using products
               that are kind to your family, your pets, and our planet.
             </p></ScrollReveal>
             <ScrollReveal delay={300}><div className="hero-btns">
@@ -91,7 +91,7 @@ export default function Home() {
           <ScrollReveal>
             <span className="section-label" style={{ color: 'var(--green)' }}>What We Offer</span>
             <h2 className="section-title" style={{ color: 'var(--navy)' }}>Our Services</h2>
-            <p className="section-sub">Residential, office, and move-in/move-out cleaning — eco-friendly every time</p>
+            <p className="section-sub">Residential, office, move-in/move-out, and real estate listing-prep cleaning — eco-friendly every time</p>
           </ScrollReveal>
 
           <div className="preview-cards">
@@ -99,6 +99,7 @@ export default function Home() {
               { label: 'Residential Cleaning' },
               { label: 'Office Cleaning' },
               { label: 'Move-In / Move-Out' },
+              { label: 'Real Estate Listing Prep' },
             ].map(s => (
               <div key={s.label} className="preview-chip">
                 {s.label}

@@ -16,7 +16,7 @@ const steps = [
 const faqs = [
   {
     q: 'How is pricing calculated?',
-    a: 'Pricing is based on square footage. Residential maintenance cleans start at $0.10/sq. ft., monthly $0.12, one-time standard $0.15, and deep clean $0.18. Move-in/move-out cleans for empty homes run $0.25–$0.30/sq. ft. Commercial office maintenance is $0.20/sq. ft. and office deep cleaning is $0.40/sq. ft. Add-ons are also available — see our Services page for the full list.',
+    a: 'Pricing is based on square footage. Residential weekly maintenance cleans start at $0.08/sq. ft., bi-weekly maintenance $0.10, monthly $0.12, one-time standard $0.15, and deep clean $0.18. Move-in/move-out cleans for empty homes run $0.20–$0.30/sq. ft. depending on condition and soil level. Commercial office maintenance is $0.20/sq. ft. and office deep cleaning is $0.40/sq. ft. Add-ons and real estate partner pricing are also available — see our Services page for the full list.',
   },
   {
     q: 'What products do you use?',

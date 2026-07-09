@@ -335,9 +335,155 @@
   align-items: stretch;
 }
 
+.price-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .price-grid .sr-hidden,
 .price-grid .sr-visible {
   height: 100%;
+}
+
+/* ── Real Estate Partner Program ──────────────────── */
+.svc-realtor {
+  background: var(--white);
+  padding: 6rem 3rem;
+}
+
+.realtor-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.realtor-layout .sr-hidden,
+.realtor-layout .sr-visible {
+  height: 100%;
+}
+
+.realtor-copy,
+.realtor-panel {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.realtor-copy {
+  background: var(--green-soft);
+  border: 2px solid rgba(61,107,64,0.16);
+  border-radius: 16px;
+  padding: 2.3rem;
+}
+
+.realtor-offer {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  margin-top: 2rem;
+  padding: 1.3rem 1.5rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.realtor-offer span {
+  display: block;
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.realtor-offer strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  color: var(--navy);
+  font-size: 2.15rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.realtor-offer p {
+  color: var(--text-mid);
+  font-size: 0.92rem;
+  margin-top: 0.45rem;
+}
+
+.realtor-panel {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 2rem;
+  color: var(--white);
+}
+
+.realtor-panel h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 1.2rem;
+}
+
+.realtor-table {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.realtor-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) 1fr;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.realtor-row span {
+  color: rgba(255,255,255,0.78);
+  font-weight: 800;
+}
+
+.realtor-row strong {
+  color: var(--white);
+  font-size: 0.95rem;
+}
+
+.realtor-note {
+  color: rgba(255,255,255,0.68);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  margin-top: 1.2rem;
+}
+
+.realtor-perks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.realtor-perk {
+  height: 100%;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--navy);
+  box-sizing: border-box;
+}
+
+.realtor-perk svg {
+  flex-shrink: 0;
+  color: var(--green);
 }
 
 /* ── Full Service Menu ─────────────────────────────── */
@@ -585,18 +731,24 @@
 
 /* ── Responsive ───────────────────────────────────── */
 .svc-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.svc-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
 @media (max-width: 900px) {
   .svc-header { padding: 3rem 1.5rem 3.5rem; }
   .svc-section,
   .svc-pricing,
+  .svc-realtor,
   .svc-menu,
   .svc-addons,
   .svc-cta,
   .svc-area { padding: 3.5rem 1.5rem; }
   .svc-grid-3 { grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  .svc-grid-4 { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .price-grid-3,
   .price-grid-4 { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .price-grid-2 { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .realtor-layout { grid-template-columns: 1fr; }
+  .realtor-perks { grid-template-columns: repeat(2, 1fr); }
   .addons-grid { grid-template-columns: 1fr 1fr; }
   .price-card.featured { transform: none; }
   .price-card.featured:hover { transform: translateY(-4px); }
@@ -606,13 +758,20 @@
   .svc-header { padding: 2.5rem 1.2rem 3rem; }
   .svc-section,
   .svc-pricing,
+  .svc-realtor,
   .svc-menu,
   .svc-addons,
   .svc-cta,
   .svc-area { padding: 3rem 1.2rem; }
   .svc-grid-3 { grid-template-columns: 1fr; gap: 0.9rem; }
+  .svc-grid-4 { grid-template-columns: 1fr; gap: 0.9rem; }
+  .price-grid-3,
   .price-grid-4 { grid-template-columns: 1fr; }
   .price-grid-2 { grid-template-columns: 1fr; }
+  .realtor-copy,
+  .realtor-panel { padding: 1.5rem; }
+  .realtor-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .realtor-perks { grid-template-columns: 1fr; }
   .addons-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
   .addon-card { padding: 0.9rem 1rem; }
   .price-card { padding: 2rem 1.4rem; }

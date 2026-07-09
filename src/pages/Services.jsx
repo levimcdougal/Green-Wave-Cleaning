@@ -15,6 +15,7 @@ const services = [
   { img: houseImg, title: 'Residential Cleaning',   desc: 'Eco-friendly cleaning for homes of all sizes. Reliable, detailed, and safe for your family and pets.' },
   { img: officeImg, title: 'Commercial Cleaning',   desc: 'Professional cleaning for offices and businesses — maintenance and deep cleaning to keep your workspace fresh.' },
   { img: boxImg,   title: 'Move-In / Move-Out',      desc: 'Thorough cleaning before or after a move, ensuring your space is spotless and ready for the next chapter.' },
+  { img: apartImg, title: 'Real Estate Listing Prep', desc: 'Vacant-home cleaning for agents, sellers, and property partners who need a listing-ready first impression.' },
 ]
 
 const pricingCategories = [
@@ -22,11 +23,12 @@ const pricingCategories = [
     label: 'Residential Cleaning Rates',
     note: 'One-time standard cleanings are designed for customers who do not require recurring service and are priced accordingly.',
     items: [
-      { img: leafImg, name: 'Maintenance Clean', sub: 'Weekly / Bi-Weekly', amount: '$0.10', unit: 'per sq. ft.', feats: ['Kitchen & bathrooms', 'Dusting & vacuuming', 'Mopping all floors', 'Eco-friendly products'], featured: false },
+      { img: leafImg, name: 'Weekly Maintenance Clean', amount: '$0.08', unit: 'per sq. ft.', feats: ['Consistent weekly upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
+      { img: leafImg, name: 'Bi-Weekly Maintenance Clean', amount: '$0.10', unit: 'per sq. ft.', feats: ['Consistent every-other-week upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
       { img: houseImg, name: 'Monthly Clean',     amount: '$0.12', unit: 'per sq. ft.', feats: ['Everything in Maintenance Clean', 'Extra attention for less frequent visits', 'Eco-friendly products'], featured: false },
       { img: apartImg, name: 'One-Time Standard Clean', amount: '$0.15', unit: 'per sq. ft.', feats: ['For non-recurring service', 'Full kitchen & bathroom clean', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
       { img: officeImg, name: 'Deep Clean',         amount: '$0.18', unit: 'per sq. ft.', feats: ['Baseboards & blinds dusted', 'Light fixtures & cobweb removal', 'Door frames, trim & outlets cleaned', 'Detailed floor edge cleaning'], featured: true, badge: 'Most Popular' },
-      { img: boxImg,  name: 'Move-In / Move-Out Clean', sub: 'Empty Homes Only', amount: '$0.25–$0.30', unit: 'per sq. ft.', feats: ['Inside & outside of appliances & cabinets', 'Detailed kitchen & bathroom scrub', 'Closets, windows & baseboards', 'Top-to-bottom clean'], featured: false },
+      { img: boxImg,  name: 'Move-In / Move-Out Clean', sub: 'Empty Homes Only', amount: '$0.20–$0.30', unit: 'per sq. ft.', feats: ['Final price depends on property condition and soil level', 'Inside & outside of appliances & cabinets', 'Detailed kitchen & bathroom scrub', 'Top-to-bottom clean'], featured: false },
     ],
   },
   {
@@ -37,6 +39,24 @@ const pricingCategories = [
       { img: leafImg, name: 'Office Deep Cleaning', amount: '$0.40', unit: 'per sq. ft.', feats: ['Everything in Office Maintenance', 'Baseboards, blinds & vent covers', 'Interior glass & partitions', 'Deep clean restrooms & high-touch areas'], featured: false },
     ],
   },
+]
+
+const realEstateTiers = [
+  { properties: '1–2 Properties', rate: '$0.30 / sq. ft.' },
+  { properties: '3–5 Properties', rate: '5% off vacant staging cleans' },
+  { properties: '6–11 Properties', rate: '10% off vacant staging cleans' },
+  { properties: '12+ Properties', rate: '15% off vacant staging cleans' },
+  { properties: '25+ Properties', rate: 'Custom volume pricing' },
+]
+
+const realEstatePerks = [
+  'Priority scheduling',
+  'Dedicated point of contact',
+  'Cleaning checklist',
+  'Listing-ready final touches',
+  'No estimate fee',
+  'Rush scheduling when available',
+  'Eco-friendly, non-toxic products',
 ]
 
 const addOnGroups = [
@@ -192,7 +212,7 @@ export default function Services() {
           <h2 className="section-title">Our Services</h2>
           <p className="section-sub">Residential, commercial, and move-in/move-out cleaning</p></ScrollReveal>
 
-          <div className="svc-grid svc-grid-3">
+          <div className="svc-grid svc-grid-4">
             {services.map((s, i) => (
               <ScrollReveal key={s.title} delay={i * 80}>
                 <div className="svc-card">
@@ -218,7 +238,7 @@ export default function Services() {
           {pricingCategories.map((cat) => (
             <div key={cat.label} className="price-category">
               <ScrollReveal><h3 className="price-cat-label">{cat.label}</h3></ScrollReveal>
-              <div className={`price-grid price-grid-${cat.items.length === 4 ? '4' : '2'}`}>
+              <div className={`price-grid price-grid-${cat.items.length <= 2 ? '2' : '3'}`}>
                 {cat.items.map((p, i) => (
                   <ScrollReveal key={p.name} delay={i * 80}>
                     <div className={`price-card${p.featured ? ' featured' : ''}`}>
@@ -239,6 +259,58 @@ export default function Services() {
               {cat.note && <ScrollReveal><p className="price-note">{cat.note}</p></ScrollReveal>}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Real Estate Partner Program ── */}
+      <section className="svc-realtor">
+        <div className="section-inner">
+          <div className="realtor-layout">
+            <ScrollReveal>
+              <div className="realtor-copy">
+                <span className="section-label">For Real Estate Agents</span>
+                <h2 className="section-title">GreenWave Preferred Real Estate Partner Program</h2>
+                <p className="section-sub">
+                  Vacant-home cleaning that helps listings shine and makes every showing feel move-in ready.
+                </p>
+                <div className="realtor-offer">
+                  <span>New Partner Welcome Offer</span>
+                  <strong>$50 off</strong>
+                  <p>Your first vacant listing clean of $300 or more.</p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={120}>
+              <div className="realtor-panel">
+                <h3>Preferred Pricing</h3>
+                <div className="realtor-table">
+                  {realEstateTiers.map((tier) => (
+                    <div className="realtor-row" key={tier.properties}>
+                      <span>{tier.properties}</span>
+                      <strong>{tier.rate}</strong>
+                    </div>
+                  ))}
+                </div>
+                <p className="realtor-note">
+                  Preferred pricing applies to vacant staging, move-in, and move-out cleans only. Excessive debris,
+                  post-construction dust, heavy buildup, mold, biohazards, carpet cleaning, exterior windows, and
+                  conditions outside the quoted scope may require a separate estimate.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="realtor-perks">
+            {realEstatePerks.map((perk, i) => (
+              <ScrollReveal key={perk} delay={i * 45}>
+                <div className="realtor-perk">
+                  <Check size={16} />
+                  <span>{perk}</span>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
