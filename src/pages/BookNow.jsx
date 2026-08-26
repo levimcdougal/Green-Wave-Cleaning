@@ -1,9 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Phone, Mail, Clock } from '../components/Svgs'
 import apartImg from '../assets/apart.png'
 import ScrollReveal from '../components/ScrollReveal'
 import '../styles/animations.css'
 import './BookNow.css'
+
+function CalEmbed() {
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.textContent = `
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", {origin:"https://cal.com"});
+      Cal("inline", {elementOrSelector:"#cal-booking-embed", calLink:"green-wave-cleaning", layout:"month_view"});
+      Cal("ui", {theme:"light", styles:{branding:{brandColor:"#3D6B40"}}, layout:"month_view"});
+    `
+
+    document.body.appendChild(script)
+
+    return () => {
+      script.remove()
+    }
+  }, [])
+
+  return (
+    <div className="cal-embed-outer">
+      <div id="cal-booking-embed" className="cal-embed" />
+    </div>
+  )
+}
 
 
 const steps = [
@@ -16,11 +40,11 @@ const steps = [
 const faqs = [
   {
     q: 'How is pricing calculated?',
-    a: 'Pricing is based on square footage. Residential weekly maintenance cleans start at $0.08/sq. ft., bi-weekly maintenance $0.10, monthly $0.12, one-time standard $0.15, and deep clean $0.18. Move-in/move-out cleans for empty homes run $0.20–$0.30/sq. ft. depending on condition and soil level. Commercial office maintenance is $0.20/sq. ft. and office deep cleaning is $0.40/sq. ft. Add-ons and real estate partner pricing are also available — see our Services page for the full list.',
+    a: 'Hourly cleaning is $50 per hour for up to 6 hours. Recurring maintenance ranges from $0.08–$0.20 per sq. ft. based on frequency. Deep cleans range from $0.20–$0.50 per sq. ft. depending on soil level; nicotine-affected homes are $0.62 per sq. ft. Deep cleans and move-in/move-out cleans require a free in-person quote.',
   },
   {
     q: 'What products do you use?',
-    a: 'We use safe, effective, eco-friendly cleaning products that are non-toxic and safe for your family, pets, and the environment. Feel free to ask us about our specific products when you book.',
+    a: 'Truly Free is our primary cleaning brand. We use effective, eco-friendly, plant-powered products chosen with your family, pets, and the environment in mind.',
   },
   {
     q: 'Do I need to be home during the cleaning?',
@@ -28,15 +52,15 @@ const faqs = [
   },
   {
     q: 'What services do you offer?',
-    a: 'We offer residential cleaning, office cleaning, and move-in/move-out cleaning. Add-on services are also available — see our Services page for the full list.',
+    a: 'We offer residential maintenance, deep cleaning, hourly cleaning, and move-in/move-out cleaning. We do not provide office/commercial cleaning, hoarding cleanup, biohazard cleanup, mold remediation, or animal-waste cleanup.',
   },
   {
     q: 'How far in advance do I need to book?',
-    a: 'For our regular Monday–Thursday booking hours, we recommend reaching out a few days ahead, and we\'ll always do our best to accommodate last-minute requests when possible. Weekend appointments and other flexible scheduling options are available upon request with at least 2 weeks\' advance notice.',
+    a: 'Current service hours are Tuesday–Thursday, 10 AM–8 PM, and Friday–Saturday, 12 PM–6 PM. Sunday and Monday are unavailable. Booking ahead is recommended.',
   },
   {
     q: 'How long will my cleaning take?',
-    a: 'Cleaning times vary by service type and home size. Maintenance cleans generally run 1.5–5 hours, deep cleans 3–8+ hours, and move-in/move-out cleans 3–8+ hours depending on square footage. Our priority is quality, not speed — we take the time needed to do the job right. See our Terms of Service for a full breakdown of estimated times by service type.',
+    a: 'Cleaning times vary by service type, home size, and soil level. Hourly appointments can be booked for up to 6 hours. Deep and move-in/move-out cleans may take a full day or multiple days. Our priority is quality, not speed; your free in-person quote will establish a realistic plan.',
   },
   {
     q: 'What areas do you serve?',
@@ -48,7 +72,7 @@ const faqs = [
   },
   {
     q: 'Do you require a deposit, and what is your cancellation policy?',
-    a: 'A 50% deposit is required to reserve every appointment, processed securely through Stripe. Cancellations more than 48 hours before your appointment receive a full deposit refund. Cancellations between 24 and 48 hours before your appointment result in 50% of your deposit being retained. Cancellations within 24 hours — including same-day — result in the entire deposit being retained. If our team arrives and is unable to access the property or the appointment cannot be completed due to a client-related circumstance, you are responsible for 100% of the total scheduled service price. Rescheduling requests made within 48 hours of your appointment are treated as cancellations. See our Terms of Service for full details.',
+    a: 'A 50% deposit is required to reserve every appointment, processed securely through Stripe. Cancellations more than 48 hours before your appointment receive a full deposit refund. Cancellations between 24 and 48 hours before your appointment result in 50% of your deposit being retained. Cancellations within 24 hours — including same-day — result in the entire deposit being retained. If Chelsea arrives and is unable to access the property or the appointment cannot be completed due to a client-related circumstance, you are responsible for 100% of the total scheduled service price. Rescheduling requests made within 48 hours of your appointment are treated as cancellations. See our Terms of Service for full details.',
   },
 ]
 
@@ -77,6 +101,18 @@ export default function BookNow() {
           <ScrollReveal delay={200}><p className="book-header-sub">
             Ready for a spotless, eco-friendly home? Reach out and Chelsea will get back to you fast.
           </p></ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── Calendar ── */}
+      <section className="book-section book-cal-section">
+        <div className="book-inner">
+          <ScrollReveal>
+            <span className="section-label">Pick a Time</span>
+            <h2 className="book-section-title">Book a Cleaning</h2>
+            <p className="book-section-sub">Book hourly service directly, or choose a free in-person quote for deep cleans and move-in/move-out cleans.</p>
+          </ScrollReveal>
+          <CalEmbed />
         </div>
       </section>
 
@@ -128,10 +164,9 @@ export default function BookNow() {
               <div className="hours-card">
                 <div className="hours-card-ico"><Clock size={22} /></div>
                 <div className="hours-card-text">
-                  <span className="hours-card-label">Regular Booking Hours</span>
-                  <span className="hours-card-value">10:00 AM – 2:00 PM EST</span>
-                  <span className="hours-card-value">4:00 PM – 8:00 PM EST</span>
-                  <span className="hours-card-days">Monday – Thursday</span>
+                  <span className="hours-card-label">Tuesday – Thursday</span>
+                  <span className="hours-card-value">10:00 AM – 8:00 PM</span>
+                  <span className="hours-card-days">Sunday &amp; Monday: unavailable</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -139,9 +174,9 @@ export default function BookNow() {
               <div className="hours-card">
                 <div className="hours-card-ico"><img src={apartImg} alt="" className="hours-card-img" /></div>
                 <div className="hours-card-text">
-                  <span className="hours-card-label">Weekend &amp; Flexible Scheduling</span>
-                  <span className="hours-card-value">Available upon request</span>
-                  <span className="hours-card-days">With at least 2 weeks&apos; advance notice</span>
+                  <span className="hours-card-label">Friday &amp; Saturday</span>
+                  <span className="hours-card-value">12:00 PM – 6:00 PM</span>
+                  <span className="hours-card-days">Book online based on availability</span>
                 </div>
               </div>
             </ScrollReveal>

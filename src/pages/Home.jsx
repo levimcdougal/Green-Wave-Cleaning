@@ -6,6 +6,7 @@ import pawsImg from '../assets/paws.png'
 import starImg from '../assets/star.png'
 import logoImg from '../assets/logo.png'
 import sprayImg from '../assets/spray.png'
+import chelseaImg from '../assets/me.jpg'
 import '../styles/animations.css'
 import './Home.css'
 
@@ -23,7 +24,7 @@ export default function Home() {
             </p></ScrollReveal>
             <ScrollReveal delay={200}><p className="hero-desc">
               Top-notch eco-friendly cleaning in Columbus, Ohio and surrounding areas.
-              Residential, office, move-in/move-out, and real estate listing-prep cleaning using products
+              Residential, move-in/move-out, and real estate listing-prep cleaning using products
               that are kind to your family, your pets, and our planet.
             </p></ScrollReveal>
             <ScrollReveal delay={300}><div className="hero-btns">
@@ -49,26 +50,29 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="about-grid">
-            <ScrollReveal delay={100}><div className="about-text">
+            <ScrollReveal delay={100}><div className="about-profile">
+              <img src={chelseaImg} alt="Chelsea, owner of GreenWave Cleaning" className="about-photo" />
+              <div className="about-text">
               <p>
-                Hi, I&apos;m <em>Chelsea!</em> I&apos;m a dedicated eco-friendly cleaning professional with over 4 years of hands-on experience providing reliable, detailed cleaning services for homes and businesses.
+                Hi, I&apos;m <em>Chelsea!</em> As the face behind your local eco-friendly home cleaning service, I bring over 5 years of professional residential experience to every house I visit.
               </p>
               <p>
-                I specialize in residential and office cleaning, and I&apos;m experienced with a wide range of home and commercial spaces.
+                I proudly serve homeowners throughout Delaware and Columbus, Ohio, who value reliability and meticulous attention to detail.
               </p>
               <p>
-                My goal is to create clean, healthy, and welcoming spaces while using environmentally conscious products and practices whenever possible. I believe a clean environment shouldn&apos;t come at the expense of your health or the planet, which is why I focus on safe, effective cleaning.
+                My mission is simple: exceptional cleaning results with environmentally conscious products. Truly Free is my main cleaning brand because I refuse to compromise on your health or the planet. My non-toxic, plant-powered approach leaves your home fresh, safe for crawling babies, and welcoming for pets.
               </p>
               <p>
                 Proudly serving <strong style={{ color: '#FFFFFF' }}>Columbus, OH and surrounding areas</strong> including
                 Gahanna, Westerville, Dublin, Hilliard, Reynoldsburg, Delaware, Pickerington, Grove City, Lancaster, and more.
               </p>
+              </div>
             </div></ScrollReveal>
 
             <div className="feature-grid">
               {[
                 { ico: null, img: leafImg, label: 'Eco-Friendly Products' },
-                { ico: null, img: houseImg, label: 'Residential & Office' },
+                { ico: null, img: houseImg, label: 'Residential Specialist' },
                 { ico: null, img: pawsImg, label: 'Pet-Safe Formulas' },
                 { ico: null, img: starImg, label: 'Deep & Detailed' },
               ].map((f, i) => (
@@ -91,13 +95,13 @@ export default function Home() {
           <ScrollReveal>
             <span className="section-label" style={{ color: 'var(--green)' }}>What We Offer</span>
             <h2 className="section-title" style={{ color: 'var(--navy)' }}>Our Services</h2>
-            <p className="section-sub">Residential, office, move-in/move-out, and real estate listing-prep cleaning — eco-friendly every time</p>
+            <p className="section-sub">Residential, hourly, move-in/move-out, and real estate listing-prep cleaning — eco-friendly every time</p>
           </ScrollReveal>
 
           <div className="preview-cards">
             {[
               { label: 'Residential Cleaning' },
-              { label: 'Office Cleaning' },
+              { label: 'Hourly Cleaning' },
               { label: 'Move-In / Move-Out' },
               { label: 'Real Estate Listing Prep' },
             ].map(s => (

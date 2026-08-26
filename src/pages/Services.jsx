@@ -13,30 +13,24 @@ import './Services.css'
 
 const services = [
   { img: houseImg, title: 'Residential Cleaning',   desc: 'Eco-friendly cleaning for homes of all sizes. Reliable, detailed, and safe for your family and pets.' },
-  { img: officeImg, title: 'Commercial Cleaning',   desc: 'Professional cleaning for offices and businesses — maintenance and deep cleaning to keep your workspace fresh.' },
-  { img: boxImg,   title: 'Move-In / Move-Out',      desc: 'Thorough cleaning before or after a move, ensuring your space is spotless and ready for the next chapter.' },
+  { img: officeImg, title: 'Hourly Cleaning',   desc: 'A flexible $50-per-hour clean, tailored to your checklist, for appointments up to 6 hours.' },
+  { img: boxImg,   title: 'Move-In / Move-Out',      desc: 'Detailed cleaning for empty homes. Book a free in-person quote so Chelsea can assess the scope and schedule enough time.' },
   { img: apartImg, title: 'Real Estate Listing Prep', desc: 'Vacant-home cleaning for agents, sellers, and property partners who need a listing-ready first impression.' },
 ]
 
 const pricingCategories = [
   {
     label: 'Residential Cleaning Rates',
-    note: 'One-time standard cleanings are designed for customers who do not require recurring service and are priced accordingly.',
+    note: 'A deep clean is required before recurring maintenance service. Deep cleans may take a full day or multiple days; book a free in-person quote for an accurate plan.',
     items: [
       { img: leafImg, name: 'Weekly Maintenance Clean', amount: '$0.08', unit: 'per sq. ft.', feats: ['Consistent weekly upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
       { img: leafImg, name: 'Bi-Weekly Maintenance Clean', amount: '$0.10', unit: 'per sq. ft.', feats: ['Consistent every-other-week upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
-      { img: houseImg, name: 'Monthly Clean',     amount: '$0.12', unit: 'per sq. ft.', feats: ['Everything in Maintenance Clean', 'Extra attention for less frequent visits', 'Eco-friendly products'], featured: false },
-      { img: apartImg, name: 'One-Time Standard Clean', amount: '$0.15', unit: 'per sq. ft.', feats: ['For non-recurring service', 'Full kitchen & bathroom clean', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
-      { img: officeImg, name: 'Deep Clean',         amount: '$0.18', unit: 'per sq. ft.', feats: ['Baseboards & blinds dusted', 'Light fixtures & cobweb removal', 'Door frames, trim & outlets cleaned', 'Detailed floor edge cleaning'], featured: true, badge: 'Most Popular' },
-      { img: boxImg,  name: 'Move-In / Move-Out Clean', sub: 'Empty Homes Only', amount: '$0.20–$0.30', unit: 'per sq. ft.', feats: ['Final price depends on property condition and soil level', 'Inside & outside of appliances & cabinets', 'Detailed kitchen & bathroom scrub', 'Top-to-bottom clean'], featured: false },
-    ],
-  },
-  {
-    label: 'Commercial Cleaning Rates',
-    note: 'After-hours cleaning (evenings/weekends) carries a +15% surcharge. Emergency, short-notice, and holiday service available by custom quote. Custom pricing available for recurring contracts and large facilities.',
-    items: [
-      { img: officeImg, name: 'Office Maintenance Cleaning', amount: '$0.20', unit: 'per sq. ft.', feats: ['Offices & workstations', 'Breakrooms & restrooms', 'Common area upkeep', 'Eco-friendly products'], featured: false },
-      { img: leafImg, name: 'Office Deep Cleaning', amount: '$0.40', unit: 'per sq. ft.', feats: ['Everything in Office Maintenance', 'Baseboards, blinds & vent covers', 'Interior glass & partitions', 'Deep clean restrooms & high-touch areas'], featured: false },
+      { img: houseImg, name: 'Every 3 Weeks', amount: '$0.13', unit: 'per sq. ft.', feats: ['Recurring maintenance', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
+      { img: houseImg, name: 'Monthly Clean', amount: '$0.16', unit: 'per sq. ft.', feats: ['Recurring monthly upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
+      { img: apartImg, name: 'Bi-Monthly Clean', amount: '$0.18', unit: 'per sq. ft.', feats: ['Service every two months', 'Detailed recurring upkeep', 'Eco-friendly products'], featured: false },
+      { img: apartImg, name: 'Quarterly Clean', amount: '$0.20', unit: 'per sq. ft.', feats: ['Service every three months', 'Detailed recurring upkeep', 'Eco-friendly products'], featured: false },
+      { img: officeImg, name: 'Deep Clean', amount: '$0.20–$0.50', unit: 'per sq. ft.', feats: ['Rate depends on soil level', 'Free in-person quote required', 'May require multiple days', 'Nicotine-affected homes: $0.62/sq. ft.'], featured: true, badge: 'Quote Required' },
+      { img: boxImg, name: 'Hourly Cleaning', amount: '$50', unit: 'per hour', feats: ['Book up to 6 hours', 'Give Chelsea your checklist', 'Tasks completed within booked time', 'Tailored to your needs'], featured: false },
     ],
   },
 ]
@@ -75,27 +69,12 @@ const addOnGroups = [
       { name: 'Organization & Decluttering',        price: 'Custom Quote' },
     ],
   },
-  {
-    label: 'Commercial Add-Ons',
-    items: [
-      { name: 'Conference Room Detailing',          price: 'Starting at $50' },
-      { name: 'Inside Refrigerator (Empty)',        price: 'Starting at $50' },
-      { name: 'Inside Refrigerator (Contains Food)', price: '$75' },
-      { name: 'Inside Microwave Cleaning',          price: 'Starting at $15' },
-      { name: 'Baseboard Cleaning',                 price: 'Starting at $50' },
-      { name: 'Supply Restocking Assistance',       price: 'Starting at $25' },
-      { name: 'Ceiling Fan Dusting',                 price: '$10 per fan' },
-      { name: 'Wall Washing',                        price: 'Starting at $75' },
-      { name: 'After-Hours Cleaning (Evenings/Weekends)', price: '+15% Surcharge' },
-      { name: 'Move-In / Move-Out Office Cleaning', price: 'Custom Quote' },
-    ],
-  },
 ]
 
 const serviceMenu = [
   {
-    name: 'Maintenance, Monthly & One-Time Standard Clean',
-    note: 'The same detailed checklist every visit — whether it’s weekly, bi-weekly, monthly, or a single one-time clean.',
+    name: 'Recurring Maintenance & Hourly Cleaning',
+    note: 'The detailed maintenance checklist applies to recurring visits. Hourly appointments follow your prioritized checklist for the amount of time booked.',
     groups: [
       { label: 'Kitchen', items: ['Countertops & backsplash', 'Sink & faucet', 'Appliance exteriors', 'Microwave interior', 'Vacuum & mop floors'] },
       { label: 'Bathrooms', items: ['Toilets, sinks & mirrors', 'Showers & tubs', 'Trash removal', 'Vacuum & mop floors'] },
@@ -118,21 +97,6 @@ const serviceMenu = [
     ],
     highlight: { label: 'Included at No Additional Charge', items: ['Refrigerator (inside & out)', 'Oven (inside & out)', 'Microwave (inside & out)', 'Dishwasher (if applicable)'] },
     perfectFor: ['Home Buyers', 'Home Sellers', 'Renters', 'Property Managers', 'Realtors', 'Landlords'],
-  },
-  {
-    name: 'Office Cleaning',
-    note: 'Routine maintenance cleaning to keep your workspace fresh and welcoming.',
-    groups: [
-      { label: 'Offices & Workstations', items: ['Dust desks & work surfaces', 'Wipe high-touch surfaces', 'Empty trash & replace liners', 'Vacuum carpets & rugs', 'Mop hard floors'] },
-      { label: 'Breakrooms & Kitchenettes', items: ['Sanitize counters', 'Clean sinks & faucets', 'Wipe appliance exteriors', 'Clean tables & chairs'] },
-      { label: 'Restrooms', items: ['Clean & disinfect toilets and urinals', 'Clean sinks & countertops', 'Clean mirrors', 'Refill paper products (client supplied)'] },
-      { label: 'Common Areas', items: ['Dust surfaces', 'Interior glass doors', 'Spot-clean doors & switches'] },
-    ],
-  },
-  {
-    name: 'Office Deep Cleaning',
-    note: 'Includes everything in Office Cleaning, plus:',
-    flatItems: ['Baseboards', 'Blinds & window sills', 'Door frames', 'Interior glass partitions', 'Vent covers', 'Refrigerator interior cleaning', 'Microwave interior cleaning', 'Deep restroom detailing', 'Detailed floor cleaning', 'Extra attention to buildup & neglected areas'],
   },
 ]
 
@@ -210,7 +174,7 @@ export default function Services() {
         <div className="section-inner">
           <ScrollReveal><span className="section-label">What We Clean</span>
           <h2 className="section-title">Our Services</h2>
-          <p className="section-sub">Residential, commercial, and move-in/move-out cleaning</p></ScrollReveal>
+          <p className="section-sub">Residential, hourly, deep, and move-in/move-out cleaning</p></ScrollReveal>
 
           <div className="svc-grid svc-grid-4">
             {services.map((s, i) => (
@@ -293,9 +257,9 @@ export default function Services() {
                   ))}
                 </div>
                 <p className="realtor-note">
-                  Preferred pricing applies to vacant staging, move-in, and move-out cleans only. Excessive debris,
-                  post-construction dust, heavy buildup, mold, biohazards, carpet cleaning, exterior windows, and
-                  conditions outside the quoted scope may require a separate estimate.
+                  Preferred pricing applies to vacant staging, move-in, and move-out cleans only. GreenWave does not
+                  provide hoarding, biohazard, mold-remediation, animal-waste, or heavy post-construction cleanup.
+                  Other conditions outside the quoted scope may require a revised estimate or be declined.
                 </p>
               </div>
             </ScrollReveal>

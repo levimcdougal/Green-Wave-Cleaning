@@ -3,11 +3,11 @@ import './Terms.css'
 const sections = [
   {
     n: '1', title: 'Services',
-    content: `We provide residential and/or commercial eco-friendly cleaning services using environmentally conscious products and practices whenever reasonably possible.\n\nServices may include, but are not limited to:\n• Standard cleaning\n• Deep cleaning\n• Move-in/move-out cleaning\n• Office cleaning\n• Green/sustainable cleaning solutions\n• Specialty add-on services\n\nSpecific service details, pricing, and availability are described during booking or in service agreements.`,
+    content: `GreenWave Cleaning LLC provides premium residential cleaning services throughout Delaware and Columbus, Ohio. Truly Free is our primary eco-friendly, plant-powered cleaning line.\n\nServices may include:\n• Hourly residential cleaning\n• Recurring maintenance cleaning\n• Deep cleaning\n• Move-in/move-out cleaning\n• Specialty add-on services\n\nServices are limited strictly to residential properties. We do not provide commercial or office cleaning services. A free in-person consultation is required before a first-time deep clean or move-in/move-out clean can be finalized. A deep clean is required before a new client begins recurring maintenance service.`,
   },
   {
     n: '2', title: 'Scheduling & Appointments',
-    content: `Clients may schedule services through our website, phone, email, or approved third-party booking systems.\n\nYou agree to provide:\n• Accurate contact information\n• Safe access to the property\n• Necessary instructions for entry or special cleaning needs\n\nAppointment windows are estimates and may vary due to traffic, weather, staffing, or prior appointments.`,
+    content: `Clients may schedule services through our website, phone, email, or approved third-party booking systems.\n\nYou agree to provide:\n• Accurate contact information\n• Safe access to the property\n• Necessary instructions for entry or special cleaning needs\n• Functioning water, electricity, heating, and air conditioning\n\nBecause services are performed by a solo professional and travel times vary, arrivals use a 1-to-2-hour window rather than an exact minute.`,
   },
   {
     n: '3', title: 'Pricing & Payment',
@@ -35,11 +35,11 @@ const sections = [
   },
   {
     n: '9', title: 'Eco-Friendly Products Disclaimer',
-    content: `We strive to use environmentally responsible and non-toxic cleaning products whenever possible. However:\n\n• No cleaning product can be guaranteed to be completely allergen-free or chemical-free.\n• Clients should inform us of allergies, sensitivities, pets, or special environmental concerns before service.\n• Certain stains, mold, buildup, or hazardous conditions may require stronger conventional products or specialized remediation services.\n\nWe reserve the right to decline services involving hazardous materials, biohazards, infestations, or unsafe environments.`,
+    content: `We strive to use environmentally responsible and non-toxic cleaning products whenever possible. However:\n\n• No cleaning product can be guaranteed to be completely allergen-free or chemical-free.\n• Clients should inform us of allergies, sensitivities, pets, or special environmental concerns before service.\n• Certain stains, mold, buildup, or hazardous conditions require specialized remediation services.\n\nWe strictly do not provide cleanup for biohazards, hazardous waste, mold remediation, hoarding conditions, heavy post-construction hazards, animal waste, pet accidents, litter boxes, or heavily soiled pet areas. These conditions must be fully cleared before arrival.`,
   },
   {
     n: '10', title: 'Client Responsibilities',
-    content: `Clients agree to:\n• Secure valuables and fragile items\n• Provide utilities such as water and electricity\n• Ensure safe working conditions\n• Inform us of hazards, damage, or sensitive surfaces\n\nFor safety reasons, our staff may refuse tasks involving:\n• Heavy lifting\n• Climbing beyond safe ladder limits\n• Exposure to hazardous substances\n• Unsafe or unsanitary conditions`,
+    content: `Services are completed by one solo professional. Clients agree to:\n• Secure valuables and fragile items\n• Provide water, electricity, and functional climate control\n• Ensure safe working conditions\n• Inform us of hazards, damage, or sensitive surfaces\n\nFor safety reasons, Chelsea cannot lift, slide, or move furniture or other items weighing more than 50 pounds. GreenWave Cleaning LLC may immediately stop or refuse any service when an environment is unsafe, unstable, unsanitary, or hazardous to health.`,
   },
   {
     n: '11', title: 'Harassment & Employee Safety Policy',
@@ -95,6 +95,52 @@ const sections = [
   },
 ]
 
+const soloCleaningTimes = `At GreenWave Cleaning LLC, every home is unique. Because services are performed by a solo cleaner, the timeframes below are realistic guidelines and are not strictly guaranteed. Actual appointment length depends on square footage, soil level, bedrooms and bathrooms, pet hair, clutter, specialty surfaces, and requested add-ons.
+
+Our priority is quality — not speed. We take the time necessary to provide the detailed, non-toxic professional cleaning you expect.
+
+Weekly & Biweekly Maintenance Cleaning
+• Up to 1,000 sq. ft.: 2–3 hours
+• 1,001–2,000 sq. ft.: 3–4.5 hours
+• 2,001–3,000 sq. ft.: 4.5–6 hours
+• 3,001–4,000 sq. ft.: 6–7.5 hours
+• Over 4,000 sq. ft.: 7.5+ hours and may require multiple days
+
+Monthly Maintenance Cleaning
+• Up to 1,000 sq. ft.: 2.5–3.5 hours
+• 1,001–2,000 sq. ft.: 3.5–5 hours
+• 2,001–3,000 sq. ft.: 5–6.5 hours
+• 3,001–4,000 sq. ft.: 6.5–8 hours
+• Over 4,000 sq. ft.: Individual assessment or split scheduling required
+
+Deep Cleaning & Move-In / Move-Out Cleaning
+• Up to 1,000 sq. ft.: 4–5.5 hours
+• 1,001–2,000 sq. ft.: 5.5–8 hours
+• 2,001–3,000 sq. ft.: 8–10 hours and requires two consecutive days
+• 3,001–4,000 sq. ft.: 10–12+ hours and requires two consecutive days
+• Over 4,000 sq. ft.: Multiple sequential appointments are required
+
+If the property differs significantly from what was disclosed or evaluated, additional time, pricing adjustments, or multiple appointments may be required. Whenever reasonably possible, changes will be discussed before additional work is performed.`
+
+const currentSections = sections.map((section) => {
+  if (section.n === '6') return { ...section, content: soloCleaningTimes }
+
+  return {
+    ...section,
+    title: section.title.replace('Employee Safety', 'Solo Cleaner Safety'),
+    content: section.content
+      .replaceAll('our team', 'Chelsea')
+      .replaceAll('our staff', 'Chelsea')
+      .replaceAll('our employees', 'Chelsea')
+      .replaceAll('any employee', 'Chelsea')
+      .replaceAll('an employee', 'Chelsea')
+      .replaceAll('its employees, contractors, and affiliates', 'Chelsea and authorized contractors and affiliates')
+      .replaceAll('Chelsea are', 'Chelsea is')
+      .replaceAll('Chelsea experience', 'Chelsea experiences')
+      .replaceAll('Chelsea feel', 'Chelsea feels'),
+  }
+})
+
 export default function Terms() {
   return (
     <main style={{ paddingTop: 72 }}>
@@ -104,7 +150,7 @@ export default function Terms() {
         <div className="terms-inner">
           <p className="terms-company">GreenWave Cleaning LLC</p>
           <h1 className="terms-title">Terms of Service</h1>
-          <p className="terms-date">Effective Date: May 5, 2026</p>
+          <p className="terms-date">Effective Date: August 26, 2026</p>
           <p className="terms-intro">
             Welcome to GreenWave Cleaning. These Terms of Service govern your use of our cleaning services, website, scheduling platform, and communications. By booking or using our services, you agree to these Terms.
           </p>
@@ -115,7 +161,7 @@ export default function Terms() {
       <section className="terms-body">
         <div className="terms-inner">
           <div className="terms-sections">
-            {sections.map(s => (
+            {currentSections.map(s => (
               <div key={s.n} className="terms-section">
                 <h2 className="terms-section-title">
                   <span className="terms-num">{s.n}.</span> {s.title}

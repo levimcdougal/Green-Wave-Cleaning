@@ -63,7 +63,7 @@
 
 /* ── Calendar ─────────────────────────────────────── */
 .book-cal-section {
-  background: var(--white);
+  background: #f1f6f1;
   position: relative;
   overflow: hidden;
 }
@@ -82,13 +82,22 @@
 .cal-embed-outer {
   position: relative;
   margin-top: 2rem;
+  max-width: 930px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(27,58,99,0.08);
 }
 
 .cal-embed {
   width: 100%;
-  min-height: 650px;
+  height: 500px;
+  min-height: 0;
   border-radius: 16px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .cal-cover {
