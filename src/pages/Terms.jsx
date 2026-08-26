@@ -129,6 +129,8 @@ const currentSections = sections.map((section) => {
     ...section,
     title: section.title.replace('Employee Safety', 'Solo Cleaner Safety'),
     content: section.content
+      .replace('throughout Delaware and Columbus, Ohio', 'throughout Columbus, Franklin County, Delaware, and Delaware County, Ohio')
+      .replace('designed to prepare homes for new occupants, real estate listings, rental turnovers, and property sales', 'designed to prepare homes for new occupants or leave a previous home clean after moving out')
       .replaceAll('our team', 'Chelsea')
       .replaceAll('our staff', 'Chelsea')
       .replaceAll('our employees', 'Chelsea')

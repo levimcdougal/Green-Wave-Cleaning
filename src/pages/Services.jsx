@@ -15,7 +15,7 @@ const services = [
   { img: houseImg, title: 'Residential Cleaning',   desc: 'Eco-friendly cleaning for homes of all sizes. Reliable, detailed, and safe for your family and pets.' },
   { img: officeImg, title: 'Hourly Cleaning',   desc: 'A flexible $50-per-hour clean, tailored to your checklist, for appointments up to 6 hours.' },
   { img: boxImg,   title: 'Move-In / Move-Out',      desc: 'Detailed cleaning for empty homes. Book a free in-person quote so Chelsea can assess the scope and schedule enough time.' },
-  { img: apartImg, title: 'Real Estate Listing Prep', desc: 'Vacant-home cleaning for agents, sellers, and property partners who need a listing-ready first impression.' },
+  { img: apartImg, title: 'Deep Cleaning', desc: 'A detailed reset for your home before beginning recurring maintenance service.' },
 ]
 
 const pricingCategories = [
@@ -35,24 +35,6 @@ const pricingCategories = [
   },
 ]
 
-const realEstateTiers = [
-  { properties: '1–2 Properties', rate: '$0.30 / sq. ft.' },
-  { properties: '3–5 Properties', rate: '5% off vacant staging cleans' },
-  { properties: '6–11 Properties', rate: '10% off vacant staging cleans' },
-  { properties: '12+ Properties', rate: '15% off vacant staging cleans' },
-  { properties: '25+ Properties', rate: 'Custom volume pricing' },
-]
-
-const realEstatePerks = [
-  'Priority scheduling',
-  'Dedicated point of contact',
-  'Cleaning checklist',
-  'Listing-ready final touches',
-  'No estimate fee',
-  'Rush scheduling when available',
-  'Eco-friendly, non-toxic products',
-]
-
 const addOnGroups = [
   {
     label: 'Residential Add-Ons',
@@ -64,8 +46,6 @@ const addOnGroups = [
       { name: 'Dishes',                             price: '$25' },
       { name: 'Pet Hair Treatment',                 price: '$20–$75' },
       { name: 'Ceiling Fan Dusting',                price: '$10 each' },
-      { name: 'Wall Washing',                       price: 'Starting at $50' },
-      { name: 'Basement Cleaning',                  price: 'Starting at $100' },
       { name: 'Organization & Decluttering',        price: 'Custom Quote' },
     ],
   },
@@ -96,7 +76,7 @@ const serviceMenu = [
       { label: 'Throughout the Home', items: ['Closets & shelving', 'Window sills & tracks', 'Doors, trim & baseboards', 'Ceiling fans (reachable areas)', 'Remove cobwebs', 'Vacuum carpets & floors', 'Mop hard floors', 'Spot-clean walls as needed'] },
     ],
     highlight: { label: 'Included at No Additional Charge', items: ['Refrigerator (inside & out)', 'Oven (inside & out)', 'Microwave (inside & out)', 'Dishwasher (if applicable)'] },
-    perfectFor: ['Home Buyers', 'Home Sellers', 'Renters', 'Property Managers', 'Realtors', 'Landlords'],
+    perfectFor: ['New homeowners', 'Sellers', 'Renters', 'Landlords'],
   },
 ]
 
@@ -151,9 +131,6 @@ function ServiceMenuItem({ item }) {
 
 const serviceArea = [
   'Columbus, OH', 'Franklin County, OH', 'Delaware, OH', 'Delaware County, OH',
-  'Licking County, OH', 'Fairfield County, OH', 'Gahanna, OH', 'Westerville, OH',
-  'Reynoldsburg, OH', 'Pickerington, OH', 'Canal Winchester, OH', 'Grove City, OH',
-  'Hilliard, OH', 'Dublin, OH', 'Newark, OH', 'Lancaster, OH',
 ]
 
 export default function Services() {
@@ -226,58 +203,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── Real Estate Partner Program ── */}
-      <section className="svc-realtor">
-        <div className="section-inner">
-          <div className="realtor-layout">
-            <ScrollReveal>
-              <div className="realtor-copy">
-                <span className="section-label">For Real Estate Agents</span>
-                <h2 className="section-title">GreenWave Preferred Real Estate Partner Program</h2>
-                <p className="section-sub">
-                  Vacant-home cleaning that helps listings shine and makes every showing feel move-in ready.
-                </p>
-                <div className="realtor-offer">
-                  <span>New Partner Welcome Offer</span>
-                  <strong>$50 off</strong>
-                  <p>Your first vacant listing clean of $300 or more.</p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={120}>
-              <div className="realtor-panel">
-                <h3>Preferred Pricing</h3>
-                <div className="realtor-table">
-                  {realEstateTiers.map((tier) => (
-                    <div className="realtor-row" key={tier.properties}>
-                      <span>{tier.properties}</span>
-                      <strong>{tier.rate}</strong>
-                    </div>
-                  ))}
-                </div>
-                <p className="realtor-note">
-                  Preferred pricing applies to vacant staging, move-in, and move-out cleans only. GreenWave does not
-                  provide hoarding, biohazard, mold-remediation, animal-waste, or heavy post-construction cleanup.
-                  Other conditions outside the quoted scope may require a revised estimate or be declined.
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="realtor-perks">
-            {realEstatePerks.map((perk, i) => (
-              <ScrollReveal key={perk} delay={i * 45}>
-                <div className="realtor-perk">
-                  <Check size={16} />
-                  <span>{perk}</span>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Full Service Menu ── */}
       <section className="svc-menu">
         <div className="section-inner">
@@ -326,7 +251,7 @@ export default function Services() {
           <ScrollReveal>
             <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>Where We Serve</span>
             <h2 className="section-title" style={{ color: '#FFFFFF' }}>Service Area</h2>
-            <p className="section-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Serving Columbus, OH and all surrounding communities</p>
+            <p className="section-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Serving Columbus and Delaware, including Franklin and Delaware counties</p>
           </ScrollReveal>
           <ScrollReveal>
             <div className="area-chips">
@@ -343,7 +268,7 @@ export default function Services() {
         <div className="section-inner" style={{ textAlign: 'center' }}>
           <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>Ready to book?</span>
           <h2 className="svc-cta-title">Let&apos;s get your space sparkling</h2>
-          <p className="svc-cta-sub">Eco-friendly · Columbus &amp; surrounding areas</p>
+          <p className="svc-cta-sub">Eco-friendly · Columbus, Franklin County, Delaware &amp; Delaware County</p>
           <Link to="/book" className="btn-primary svc-cta-btn">
             Book Now <img src={sprayImg} alt="" className="btn-leaf-img" />
           </Link>

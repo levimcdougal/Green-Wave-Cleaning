@@ -23,8 +23,8 @@ export default function Home() {
               Prioritizing eco-friendly products to take care of your space <em>and</em> the planet
             </p></ScrollReveal>
             <ScrollReveal delay={200}><p className="hero-desc">
-              Top-notch eco-friendly cleaning in Columbus, Ohio and surrounding areas.
-              Residential, move-in/move-out, and real estate listing-prep cleaning using products
+              Top-notch eco-friendly cleaning in Columbus and Delaware, including Franklin and Delaware counties.
+              Residential and move-in/move-out cleaning using products
               that are kind to your family, your pets, and our planet.
             </p></ScrollReveal>
             <ScrollReveal delay={300}><div className="hero-btns">
@@ -63,8 +63,7 @@ export default function Home() {
                 My mission is simple: exceptional cleaning results with environmentally conscious products. Truly Free is my main cleaning brand because I refuse to compromise on your health or the planet. My non-toxic, plant-powered approach leaves your home fresh, safe for crawling babies, and welcoming for pets.
               </p>
               <p>
-                Proudly serving <strong style={{ color: '#FFFFFF' }}>Columbus, OH and surrounding areas</strong> including
-                Gahanna, Westerville, Dublin, Hilliard, Reynoldsburg, Delaware, Pickerington, Grove City, Lancaster, and more.
+                Proudly serving <strong style={{ color: '#FFFFFF' }}>Columbus, Franklin County, Delaware, and Delaware County, Ohio.</strong>
               </p>
               </div>
             </div></ScrollReveal>
@@ -95,7 +94,7 @@ export default function Home() {
           <ScrollReveal>
             <span className="section-label" style={{ color: 'var(--green)' }}>What We Offer</span>
             <h2 className="section-title" style={{ color: 'var(--navy)' }}>Our Services</h2>
-            <p className="section-sub">Residential, hourly, move-in/move-out, and real estate listing-prep cleaning — eco-friendly every time</p>
+            <p className="section-sub">Residential, hourly, deep, and move-in/move-out cleaning — eco-friendly every time</p>
           </ScrollReveal>
 
           <div className="preview-cards">
@@ -103,7 +102,7 @@ export default function Home() {
               { label: 'Residential Cleaning' },
               { label: 'Hourly Cleaning' },
               { label: 'Move-In / Move-Out' },
-              { label: 'Real Estate Listing Prep' },
+              { label: 'Deep Cleaning' },
             ].map(s => (
               <div key={s.label} className="preview-chip">
                 {s.label}
@@ -122,7 +121,7 @@ export default function Home() {
         <div className="home-cta-inner">
           <span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>Ready to get started?</span>
           <h2 className="home-cta-title">Book your eco-friendly cleaning today</h2>
-          <p className="home-cta-sub">Affordable rates · Eco-friendly products · Columbus &amp; surrounding areas</p>
+          <p className="home-cta-sub">Affordable rates · Eco-friendly products · Columbus, Franklin County, Delaware &amp; Delaware County</p>
           <Link to="/book" className="btn-primary home-cta-btn">
             Book Now <img src={sprayImg} alt="" className="btn-leaf-img" />
           </Link>

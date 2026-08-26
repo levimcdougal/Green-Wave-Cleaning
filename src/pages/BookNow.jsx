@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     q: 'What areas do you serve?',
-    a: 'We serve Columbus, OH and surrounding areas including Gahanna, Westerville, Dublin, Hilliard, Reynoldsburg, Delaware, Pickerington, Grove City, Lancaster, and more.',
+    a: 'We serve Columbus, Franklin County, Delaware, and Delaware County, Ohio.',
   },
   {
     q: 'What payment methods do you accept?',
