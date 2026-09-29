@@ -29,7 +29,7 @@ const pricingCategories = [
       { img: houseImg, name: 'Monthly / Standard Clean', amount: '$0.12–$0.14', unit: 'per sq. ft.', feats: ['Low-to-moderate traffic homes', 'Every 3–4 weeks', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
       { img: apartImg, name: 'Bi-Monthly Clean', amount: '$0.18', unit: 'per sq. ft.', feats: ['Service every two months', 'Detailed recurring upkeep', 'Eco-friendly products'], featured: false },
       { img: apartImg, name: 'Quarterly Clean', amount: '$0.20', unit: 'per sq. ft.', feats: ['Service every three months', 'Detailed recurring upkeep', 'Eco-friendly products'], featured: false },
-      { img: officeImg, name: 'Deep Clean / First-Time Service', amount: '$0.22–$0.25', unit: 'per sq. ft.', feats: ['Rate depends on soil level', 'Free in-person quote required', 'May require multiple days', 'Nicotine remediation: from $0.55/sq. ft.'], featured: true, badge: 'Quote Required' },
+      { img: officeImg, name: 'Deep Clean / First-Time Service', amount: '$0.25–$0.50', unit: 'per sq. ft.', feats: ['Rate depends on initial condition and soil level', 'Free in-person quote required', 'May require multiple days', 'Nicotine remediation: from $0.55/sq. ft.'], featured: true, badge: 'Quote Required' },
       { img: boxImg, name: 'Hourly Cleaning', amount: '$45', unit: 'per hour', feats: ['Book up to 8 hours', 'Give Chelsea your checklist', 'Tasks completed within booked time', 'Tailored to your needs'], featured: false },
     ],
   },

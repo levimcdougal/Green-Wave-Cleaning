@@ -43,7 +43,7 @@ const faqs = [
   { q: 'How do hourly bookings and breaks work?', a: hourlyPolicy },
   {
     q: 'How is pricing calculated?',
-    a: 'Hourly cleaning is $45 per hour for up to 8 hours. Weekly maintenance is $0.07 per sq. ft.; bi-weekly is $0.10; monthly / standard cleaning is $0.12–$0.14 for 3–4 week gaps. Deep cleaning / first-time service is $0.22–$0.25 per sq. ft. and is required for all first-time bookings. Nicotine remediation starts at $0.55 per sq. ft. Deep cleans and move-in/move-out cleans require a free in-person quote. Pet fees and applicable travel or after-hours charges are additional.',
+    a: 'Hourly cleaning is $45 per hour for up to 8 hours. Weekly maintenance is $0.07 per sq. ft.; bi-weekly is $0.10; monthly / standard cleaning is $0.12–$0.14 for 3–4 week gaps. Deep cleaning / first-time service is $0.25–$0.50 per sq. ft., depending on initial condition and soil level, and is required for all first-time bookings. Nicotine remediation starts at $0.55 per sq. ft. Deep cleans and move-in/move-out cleans require a free in-person quote. Pet fees and applicable travel or after-hours charges are additional.',
   },
   {
     q: 'What products do you use?',

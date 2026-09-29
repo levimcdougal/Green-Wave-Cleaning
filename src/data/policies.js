@@ -1,9 +1,6 @@
 export const petTiers = [
-  ['1–2 Cats/Dogs', 'Flat +$10.00 per visit'],
-  ['3–4 Cats/Dogs', 'Flat +$15.00 per visit'],
-  ['5–6 Cats/Dogs', 'Flat +$20.00 per visit'],
-  ['7–8 Cats/Dogs', 'Flat +$25.00 per visit'],
-  ['9+ Cats/Dogs', 'Service unavailable (Exceeds standard residential maintenance scope)'],
+  ['1–9 Cats/Dogs', '$5 per cat/dog per visit'],
+  ['10+ Cats/Dogs', 'Service unavailable (Exceeds standard residential scope)'],
 ]
 export const petIntro = 'A flat per-visit fee is added to your subtotal to cover specialized pet-hair removal passes, deep baseboard dusting, and extra vacuum filtration maintenance. This applies strictly to free-roaming cats and dogs (tanks, cages, and aquariums are always free).'
 export const petDensity = 'Pet Density Cap: To maintain our high standards of quality and safety, Green Wave Cleaning LLC reserves the right to decline service for homes with a high concentration of animals relative to a small square footage (e.g., a large number of free-roaming pets in a small apartment or restricted floor plan). These environments require specialized deep restoration cleaning that falls outside our standard residential scope.'
