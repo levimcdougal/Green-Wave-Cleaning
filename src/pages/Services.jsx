@@ -1,3 +1,4 @@
+import { petTiers, petIntro, petDensity, hourlyPolicy, hoursPolicy, serviceArea, travelPolicy } from '../data/policies'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Check } from '../components/Svgs'
@@ -13,7 +14,7 @@ import './Services.css'
 
 const services = [
   { img: houseImg, title: 'Residential Cleaning',   desc: 'Eco-friendly cleaning for homes of all sizes. Reliable, detailed, and safe for your family and pets.' },
-  { img: officeImg, title: 'Hourly Cleaning',   desc: 'A flexible $50-per-hour clean, tailored to your checklist, for appointments up to 6 hours.' },
+  { img: officeImg, title: 'Hourly Cleaning',   desc: 'A flexible $45-per-hour clean, tailored to your checklist, for appointments up to 8 hours.' },
   { img: boxImg,   title: 'Move-In / Move-Out',      desc: 'Detailed cleaning for empty homes. Book a free in-person quote so Chelsea can assess the scope and schedule enough time.' },
   { img: apartImg, title: 'Deep Cleaning', desc: 'A detailed reset for your home before beginning recurring maintenance service.' },
 ]
@@ -21,19 +22,28 @@ const services = [
 const pricingCategories = [
   {
     label: 'Residential Cleaning Rates',
-    note: 'A deep clean is required before recurring maintenance service. Deep cleans may take a full day or multiple days; book a free in-person quote for an accurate plan.',
+    note: 'A deep clean is required for all first-time bookings and is also available for seasonal deep refreshes. Deep cleans may take a full day or multiple days; book a free in-person quote for an accurate plan.',
     items: [
-      { img: leafImg, name: 'Weekly Maintenance Clean', amount: '$0.08', unit: 'per sq. ft.', feats: ['Consistent weekly upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
+      { img: leafImg, name: 'Weekly Maintenance Clean', amount: '$0.07', unit: 'per sq. ft.', feats: ['Our highest-discount maintenance tier', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
       { img: leafImg, name: 'Bi-Weekly Maintenance Clean', amount: '$0.10', unit: 'per sq. ft.', feats: ['Consistent every-other-week upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
-      { img: houseImg, name: 'Every 3 Weeks', amount: '$0.13', unit: 'per sq. ft.', feats: ['Recurring maintenance', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
-      { img: houseImg, name: 'Monthly Clean', amount: '$0.16', unit: 'per sq. ft.', feats: ['Recurring monthly upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
+      { img: houseImg, name: 'Monthly / Standard Clean', amount: '$0.12–$0.14', unit: 'per sq. ft.', feats: ['Low-to-moderate traffic homes', 'Every 3–4 weeks', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
       { img: apartImg, name: 'Bi-Monthly Clean', amount: '$0.18', unit: 'per sq. ft.', feats: ['Service every two months', 'Detailed recurring upkeep', 'Eco-friendly products'], featured: false },
       { img: apartImg, name: 'Quarterly Clean', amount: '$0.20', unit: 'per sq. ft.', feats: ['Service every three months', 'Detailed recurring upkeep', 'Eco-friendly products'], featured: false },
-      { img: officeImg, name: 'Deep Clean', amount: '$0.20–$0.50', unit: 'per sq. ft.', feats: ['Rate depends on soil level', 'Free in-person quote required', 'May require multiple days', 'Nicotine-affected homes: $0.62/sq. ft.'], featured: true, badge: 'Quote Required' },
-      { img: boxImg, name: 'Hourly Cleaning', amount: '$50', unit: 'per hour', feats: ['Book up to 6 hours', 'Give Chelsea your checklist', 'Tasks completed within booked time', 'Tailored to your needs'], featured: false },
+      { img: officeImg, name: 'Deep Clean / First-Time Service', amount: '$0.22–$0.25', unit: 'per sq. ft.', feats: ['Rate depends on soil level', 'Free in-person quote required', 'May require multiple days', 'Nicotine remediation: from $0.55/sq. ft.'], featured: true, badge: 'Quote Required' },
+      { img: boxImg, name: 'Hourly Cleaning', amount: '$45', unit: 'per hour', feats: ['Book up to 8 hours', 'Give Chelsea your checklist', 'Tasks completed within booked time', 'Tailored to your needs'], featured: false },
     ],
   },
 ]
+
+const commercialFrequencies = ['Deep Clean', 'Weekly Maintenance', 'Bi-Weekly Maintenance', 'Monthly Maintenance', 'Bi-Monthly Maintenance', 'Quarterly Maintenance']
+;[
+  ['Commercial — Standard Office Layouts', ['$0.15–$0.35', '$0.08', '$0.11', '$0.14', '$0.17', '$0.20']],
+  ['Commercial — High-Traffic / Specialty Spaces', ['$0.25–$0.45', '$0.12', '$0.15', '$0.18', '$0.21', '$0.24']],
+].forEach(([label, rates]) => pricingCategories.push({
+  label,
+  note: label.includes('Specialty') ? 'For salons, retail spaces, and studios.' : 'For standard office layouts.',
+  items: rates.map((amount, i) => ({ img: officeImg, name: commercialFrequencies[i], amount, unit: 'per sq. ft.', feats: [], featured: false })),
+}))
 
 const addOnGroups = [
   {
@@ -44,7 +54,6 @@ const addOnGroups = [
       { name: 'Inside Refrigerator (Contains Food)', price: '$75' },
       { name: 'Laundry Folding',                    price: '$30' },
       { name: 'Dishes',                             price: '$25' },
-      { name: 'Pet Hair Treatment',                 price: '$20–$75' },
       { name: 'Ceiling Fan Dusting',                price: '$10 each' },
       { name: 'Organization & Decluttering',        price: 'Custom Quote' },
     ],
@@ -129,10 +138,6 @@ function ServiceMenuItem({ item }) {
   )
 }
 
-const serviceArea = [
-  'Columbus, OH', 'Franklin County, OH', 'Delaware, OH', 'Delaware County, OH',
-]
-
 export default function Services() {
   return (
     <main style={{ paddingTop: 72 }}>
@@ -151,7 +156,7 @@ export default function Services() {
         <div className="section-inner">
           <ScrollReveal><span className="section-label">What We Clean</span>
           <h2 className="section-title">Our Services</h2>
-          <p className="section-sub">Residential, hourly, deep, and move-in/move-out cleaning</p></ScrollReveal>
+          <p className="section-sub">Residential, commercial, hourly, deep, and move-in/move-out cleaning</p></ScrollReveal>
 
           <div className="svc-grid svc-grid-4">
             {services.map((s, i) => (
@@ -203,6 +208,23 @@ export default function Services() {
         </div>
       </section>
 
+      <section className="svc-menu">
+        <div className="section-inner">
+          <h2 className="section-title">Pet Policy</h2>
+          <p className="menu-note">{petIntro}</p>
+          <div className="addons-grid pet-policy-grid">
+            {petTiers.map(([label, fee]) => (
+              <div className="addon-card" key={label}><span className="addon-name">{label}</span><span className="addon-price">{fee}</span></div>
+            ))}
+          </div>
+          <p className="price-note">{petDensity}</p>
+          <h2 className="section-title">Custom Hourly Bookings</h2>
+          <p className="menu-note">{hourlyPolicy}</p>
+          <h3>Operating Hours &amp; After-Hours Policy</h3>
+          <p className="menu-note">{hoursPolicy}</p>
+        </div>
+      </section>
+
       {/* ── Full Service Menu ── */}
       <section className="svc-menu">
         <div className="section-inner">
@@ -251,9 +273,10 @@ export default function Services() {
           <ScrollReveal>
             <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>Where We Serve</span>
             <h2 className="section-title" style={{ color: '#FFFFFF' }}>Service Area</h2>
-            <p className="section-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Serving Columbus and Delaware, including Franklin and Delaware counties</p>
+            <p className="section-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Based in Delaware, OH 43015 — free travel within 20 miles</p>
           </ScrollReveal>
           <ScrollReveal>
+            <p style={{ color: 'white' }}>{travelPolicy}</p>
             <div className="area-chips">
               {serviceArea.map(a => (
                 <span key={a} className="area-chip">{a}</span>

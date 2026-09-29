@@ -1,9 +1,10 @@
+import { petPolicy, hourlyPolicy, hoursPolicy, travelPolicy } from '../data/policies'
 import './Terms.css'
 
 const sections = [
   {
     n: '1', title: 'Services',
-    content: `GreenWave Cleaning LLC provides premium residential cleaning services throughout Delaware and Columbus, Ohio. Truly Free is our primary eco-friendly, plant-powered cleaning line.\n\nServices may include:\n• Hourly residential cleaning\n• Recurring maintenance cleaning\n• Deep cleaning\n• Move-in/move-out cleaning\n• Specialty add-on services\n\nServices are limited strictly to residential properties. We do not provide commercial or office cleaning services. A free in-person consultation is required before a first-time deep clean or move-in/move-out clean can be finalized. A deep clean is required before a new client begins recurring maintenance service.`,
+    content: `GreenWave Cleaning LLC provides premium residential cleaning services throughout Delaware and Columbus, Ohio. Truly Free is our primary eco-friendly, plant-powered cleaning line.\n\nServices may include:\n• Hourly residential cleaning\n• Recurring maintenance cleaning\n• Deep cleaning\n• Move-in/move-out cleaning\n• Specialty add-on services\n\nCommercial cleaning is also available for standard offices and high-traffic specialty spaces, including salons, retail spaces, and studios. A free in-person consultation is required before a first-time deep clean or move-in/move-out clean can be finalized. A deep clean is required for all first-time bookings.`,
   },
   {
     n: '2', title: 'Scheduling & Appointments',
@@ -123,6 +124,8 @@ Deep Cleaning & Move-In / Move-Out Cleaning
 If the property differs significantly from what was disclosed or evaluated, additional time, pricing adjustments, or multiple appointments may be required. Whenever reasonably possible, changes will be discussed before additional work is performed.`
 
 const currentSections = sections.map((section) => {
+  if (section.n === '14') section = { ...section, content: `${petPolicy}\n\n${section.content}` }
+  if (section.n === '2') section = { ...section, content: `${section.content}\n\n${hoursPolicy}\n\n${hourlyPolicy}\n\n${travelPolicy}` }
   if (section.n === '6') return { ...section, content: soloCleaningTimes }
 
   return {

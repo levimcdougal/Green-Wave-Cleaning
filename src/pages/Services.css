@@ -783,3 +783,9 @@
   .menu-question { font-size: 0.95rem; }
   .menu-item { padding: 1.2rem; }
 }
+
+.pet-policy-grid .addon-card { flex-direction: column; align-items: flex-start; }
+.pet-policy-grid .addon-price { white-space: normal; }
+@media (max-width: 600px) {
+  .pet-policy-grid { grid-template-columns: 1fr; }
+}

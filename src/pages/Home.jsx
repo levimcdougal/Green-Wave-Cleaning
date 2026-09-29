@@ -94,7 +94,7 @@ export default function Home() {
           <ScrollReveal>
             <span className="section-label" style={{ color: 'var(--green)' }}>What We Offer</span>
             <h2 className="section-title" style={{ color: 'var(--navy)' }}>Our Services</h2>
-            <p className="section-sub">Residential, hourly, deep, and move-in/move-out cleaning — eco-friendly every time</p>
+            <p className="section-sub">Residential, commercial, hourly, deep, and move-in/move-out cleaning — eco-friendly every time</p>
           </ScrollReveal>
 
           <div className="preview-cards">

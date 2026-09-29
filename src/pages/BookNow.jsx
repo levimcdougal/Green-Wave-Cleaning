@@ -1,3 +1,4 @@
+import { petPolicy, hourlyPolicy, hoursPolicy, travelPolicy, serviceArea } from '../data/policies'
 import { useEffect, useState } from 'react'
 import { Phone, Mail, Clock } from '../components/Svgs'
 import apartImg from '../assets/apart.png'
@@ -38,9 +39,11 @@ const steps = [
 ]
 
 const faqs = [
+  { q: 'What is your pet policy?', a: petPolicy },
+  { q: 'How do hourly bookings and breaks work?', a: hourlyPolicy },
   {
     q: 'How is pricing calculated?',
-    a: 'Hourly cleaning is $50 per hour for up to 6 hours. Recurring maintenance ranges from $0.08–$0.20 per sq. ft. based on frequency. Deep cleans range from $0.20–$0.50 per sq. ft. depending on soil level; nicotine-affected homes are $0.62 per sq. ft. Deep cleans and move-in/move-out cleans require a free in-person quote.',
+    a: 'Hourly cleaning is $45 per hour for up to 8 hours. Weekly maintenance is $0.07 per sq. ft.; bi-weekly is $0.10; monthly / standard cleaning is $0.12–$0.14 for 3–4 week gaps. Deep cleaning / first-time service is $0.22–$0.25 per sq. ft. and is required for all first-time bookings. Nicotine remediation starts at $0.55 per sq. ft. Deep cleans and move-in/move-out cleans require a free in-person quote. Pet fees and applicable travel or after-hours charges are additional.',
   },
   {
     q: 'What products do you use?',
@@ -52,19 +55,19 @@ const faqs = [
   },
   {
     q: 'What services do you offer?',
-    a: 'We offer residential maintenance, deep cleaning, hourly cleaning, and move-in/move-out cleaning. We do not provide office/commercial cleaning, hoarding cleanup, biohazard cleanup, mold remediation, or animal-waste cleanup.',
+    a: 'We offer residential maintenance, commercial cleaning for offices and specialty spaces, deep cleaning, hourly cleaning, and move-in/move-out cleaning. We do not provide hoarding cleanup, biohazard cleanup, mold remediation, or animal-waste cleanup.',
   },
   {
     q: 'How far in advance do I need to book?',
-    a: 'Current service hours are Tuesday–Thursday, 10 AM–8 PM, and Friday–Saturday, 12 PM–6 PM. Sunday and Monday are unavailable. Booking ahead is recommended.',
+    a: hoursPolicy,
   },
   {
     q: 'How long will my cleaning take?',
-    a: 'Cleaning times vary by service type, home size, and soil level. Hourly appointments can be booked for up to 6 hours. Deep and move-in/move-out cleans may take a full day or multiple days. Our priority is quality, not speed; your free in-person quote will establish a realistic plan.',
+    a: 'Cleaning times vary by service type, home size, and soil level. Hourly appointments can be booked for up to 8 hours. Deep and move-in/move-out cleans may take a full day or multiple days. Our priority is quality, not speed; your free in-person quote will establish a realistic plan.',
   },
   {
     q: 'What areas do you serve?',
-    a: 'We serve Columbus, Franklin County, Delaware, and Delaware County, Ohio.',
+    a: `${travelPolicy} Communities served include ${serviceArea.join(', ')}.`,
   },
   {
     q: 'What payment methods do you accept?',
@@ -156,7 +159,7 @@ export default function BookNow() {
           <ScrollReveal>
             <span className="section-label">When We Work</span>
             <h2 className="book-section-title">Hours &amp; Availability</h2>
-            <p className="book-section-sub">Here&apos;s when you can typically reach us and get booked</p>
+            <p className="book-section-sub">{hoursPolicy}</p>
           </ScrollReveal>
 
           <div className="hours-cards">
@@ -164,9 +167,9 @@ export default function BookNow() {
               <div className="hours-card">
                 <div className="hours-card-ico"><Clock size={22} /></div>
                 <div className="hours-card-text">
-                  <span className="hours-card-label">Tuesday – Thursday</span>
+                  <span className="hours-card-label">Wednesday – Friday</span>
                   <span className="hours-card-value">10:00 AM – 8:00 PM</span>
-                  <span className="hours-card-days">Sunday &amp; Monday: unavailable</span>
+                  <span className="hours-card-days">Sunday–Tuesday: closed</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -174,7 +177,7 @@ export default function BookNow() {
               <div className="hours-card">
                 <div className="hours-card-ico"><img src={apartImg} alt="" className="hours-card-img" /></div>
                 <div className="hours-card-text">
-                  <span className="hours-card-label">Friday &amp; Saturday</span>
+                  <span className="hours-card-label">Saturday</span>
                   <span className="hours-card-value">12:00 PM – 6:00 PM</span>
                   <span className="hours-card-days">Book online based on availability</span>
                 </div>

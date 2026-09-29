@@ -405,3 +405,5 @@
   .faq-question { font-size: 0.92rem; }
   .faq-item { padding: 1.2rem; }
 }
+
+.faq-answer { white-space: pre-line; }
