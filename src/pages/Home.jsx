@@ -24,7 +24,7 @@ export default function Home() {
             </p></ScrollReveal>
             <ScrollReveal delay={200}><p className="hero-desc">
               Top-notch eco-friendly cleaning in Columbus and Delaware, including Franklin and Delaware counties.
-              Residential and move-in/move-out cleaning using products
+              Specializing in commercial spaces and property turnovers, with residential cleaning using products
               that are kind to your family, your pets, and our planet.
             </p></ScrollReveal>
             <ScrollReveal delay={300}><div className="hero-btns">
@@ -46,7 +46,7 @@ export default function Home() {
         <div className="section-inner">
           <ScrollReveal>
             <span className="section-label">Who We Are</span>
-            <h2 className="section-title">Cleaning that cares for your home &amp; the planet</h2>
+            <h2 className="section-title">Cleaning that cares for your space &amp; the planet</h2>
           </ScrollReveal>
 
           <div className="about-grid">
@@ -54,13 +54,13 @@ export default function Home() {
               <img src={chelseaImg} alt="Chelsea, owner of GreenWave Cleaning" className="about-photo" />
               <div className="about-text">
               <p>
-                Hi, I&apos;m <em>Chelsea!</em> As the face behind your local eco-friendly home cleaning service, I bring over 5 years of professional residential experience to every house I visit.
+                Hi, I&apos;m <em>Chelsea!</em> I&apos;m the owner of GreenWave Cleaning LLC. I bring over 5 years of professional cleaning experience to every job, and I officially licensed and launched my LLC in 2026.
               </p>
               <p>
-                I proudly serve homeowners throughout Delaware and Columbus, Ohio, who value reliability and meticulous attention to detail.
+                I started with residential cleaning and am now focusing on commercial spaces and property turnovers — the work and workflow I enjoy most. I help local businesses and property managers keep their spaces clean, welcoming, and ready for what comes next.
               </p>
               <p>
-                My mission is simple: exceptional cleaning results with environmentally conscious products. Truly Free is my main cleaning brand because I refuse to compromise on your health or the planet. My non-toxic, plant-powered approach leaves your home fresh, safe for crawling babies, and welcoming for pets.
+                I continue to offer residential cleaning with eco-friendly, plant-powered products that are safe for families and pets. Truly Free remains my main cleaning brand, supporting my commitment to thoughtful care for your space and the planet.
               </p>
               <p>
                 Proudly serving <strong style={{ color: '#FFFFFF' }}>Columbus, Franklin County, Delaware, and Delaware County, Ohio.</strong>
@@ -71,7 +71,7 @@ export default function Home() {
             <div className="feature-grid">
               {[
                 { ico: null, img: leafImg, label: 'Eco-Friendly Products' },
-                { ico: null, img: houseImg, label: 'Residential Specialist' },
+                { ico: null, img: houseImg, label: 'Commercial & Turnover Care' },
                 { ico: null, img: pawsImg, label: 'Pet-Safe Formulas' },
                 { ico: null, img: starImg, label: 'Deep & Detailed' },
               ].map((f, i) => (
@@ -94,14 +94,14 @@ export default function Home() {
           <ScrollReveal>
             <span className="section-label" style={{ color: 'var(--green)' }}>What We Offer</span>
             <h2 className="section-title" style={{ color: 'var(--navy)' }}>Our Services</h2>
-            <p className="section-sub">Residential, commercial, hourly, deep, and move-in/move-out cleaning — eco-friendly every time</p>
+            <p className="section-sub">Commercial and property turnovers, residential, hourly, and deep cleaning — eco-friendly every time</p>
           </ScrollReveal>
 
           <div className="preview-cards">
             {[
-              { label: 'Residential Cleaning' },
+              { label: 'Commercial & Turnover Cleaning' },
+              { label: 'Recurring Residential Cleaning' },
               { label: 'Hourly Cleaning' },
-              { label: 'Move-In / Move-Out' },
               { label: 'Deep Cleaning' },
             ].map(s => (
               <div key={s.label} className="preview-chip">

@@ -1,4 +1,4 @@
-import { petTiers, petIntro, petDensity, hourlyPolicy, hoursPolicy, serviceArea, travelPolicy } from '../data/policies'
+import { petTiers, petIntro, petDensity, hourlyPolicy, hoursPolicy, serviceArea, travelPolicy, propertyConditionPolicy } from '../data/policies'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Check } from '../components/Svgs'
@@ -13,16 +13,16 @@ import sprayImg from '../assets/spray.png'
 import './Services.css'
 
 const services = [
-  { img: houseImg, title: 'Residential Cleaning',   desc: 'Eco-friendly cleaning for homes of all sizes. Reliable, detailed, and safe for your family and pets.' },
-  { img: officeImg, title: 'Hourly Cleaning',   desc: 'A flexible $45-per-hour clean, tailored to your checklist, for appointments up to 8 hours.' },
-  { img: boxImg,   title: 'Move-In / Move-Out',      desc: 'Detailed cleaning for empty homes. Book a free in-person quote so Chelsea can assess the scope and schedule enough time.' },
+  { img: officeImg, title: 'Commercial & Turnover Cleaning', desc: 'Our specialty: reliable cleaning for property managers, offices, professional spaces, and high-traffic facilities.', featured: true },
+  { img: houseImg, title: 'Recurring Residential Cleaning', desc: 'Eco-friendly maintenance for your home, with an initial deep clean required before starting any recurring package.' },
   { img: apartImg, title: 'Deep Cleaning', desc: 'A detailed reset for your home before beginning recurring maintenance service.' },
+  { img: boxImg, title: 'Hourly Cleaning', desc: 'A flexible $45-per-hour clean, tailored to your checklist, for appointments up to 8 hours.' },
 ]
 
 const pricingCategories = [
   {
     label: 'Residential Cleaning Rates',
-    note: 'A deep clean is required for all first-time bookings and is also available for seasonal deep refreshes. Deep cleans may take a full day or multiple days; book a free in-person quote for an accurate plan.',
+    note: 'An initial deep clean is mandatory before starting any recurring residential package. Deep cleaning is also available for seasonal refreshes. Deep cleans may take a full day or multiple days; book a free in-person quote for an accurate plan.',
     items: [
       { img: leafImg, name: 'Weekly Maintenance Clean', amount: '$0.07', unit: 'per sq. ft.', feats: ['Our highest-discount maintenance tier', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
       { img: leafImg, name: 'Bi-Weekly Maintenance Clean', amount: '$0.10', unit: 'per sq. ft.', feats: ['Consistent every-other-week upkeep', 'Kitchen & bathrooms', 'Dusting, vacuuming & mopping', 'Eco-friendly products'], featured: false },
@@ -35,15 +35,50 @@ const pricingCategories = [
   },
 ]
 
-const commercialFrequencies = ['Deep Clean', 'Weekly Maintenance', 'Bi-Weekly Maintenance', 'Monthly Maintenance', 'Bi-Monthly Maintenance', 'Quarterly Maintenance']
-;[
-  ['Commercial — Standard Office Layouts', ['$0.15–$0.35', '$0.08', '$0.11', '$0.14', '$0.17', '$0.20']],
-  ['Commercial — High-Traffic / Specialty Spaces', ['$0.25–$0.45', '$0.12', '$0.15', '$0.18', '$0.21', '$0.24']],
-].forEach(([label, rates]) => pricingCategories.push({
-  label,
-  note: label.includes('Specialty') ? 'For salons, retail spaces, and studios.' : 'For standard office layouts.',
-  items: rates.map((amount, i) => ({ img: officeImg, name: commercialFrequencies[i], amount, unit: 'per sq. ft.', feats: [], featured: false })),
-}))
+const commercialCategories = [
+  {
+    label: 'Real Estate & Property Turnover Cleans',
+    note: 'Streamlined flat-rate pricing for property managers, landlords, and investors. Base turnover order minimum: $165 per single property. Vacant units must be broom-clean; see the condition policy below.',
+    items: [
+      { img: apartImg, name: '1 Bed / 1 Bath', amount: '$165', unit: 'base turn rate', feats: ['Vacant, broom-clean units'], featured: false },
+      { img: apartImg, name: '2 Bed / 1–2 Bath', amount: '$215', unit: 'base turn rate', feats: ['Vacant, broom-clean units'], featured: false },
+      { img: apartImg, name: '3 Bed / 2–2.5 Bath', amount: '$265', unit: 'base turn rate', feats: ['Vacant, broom-clean units'], featured: false },
+      { img: apartImg, name: '4+ Bed / Large Units', amount: 'Custom', unit: 'on-site quote', feats: ['Assessed for your property'], featured: false },
+    ],
+  },
+  ...[
+    ['Standard Office & Professional Spaces', ['$0.20–$0.35', '$0.08', '$0.11', '$0.15'], 'For corporate offices, retail spaces, real estate firms, banks, logistics facilities, and low-traffic professional environments. A $125 minimum visit fee applies to smaller properties.'],
+    ['Specialty & High-Traffic Facilities', ['$0.30–$0.45', '$0.12', '$0.15', '$0.20'], 'Customized sanitation and cross-contamination protocols for salons, medical clinics, dental practices, daycares, and fitness centers. A $150 minimum visit fee applies to smaller properties.'],
+  ].map(([label, rates, note]) => ({
+    label, note,
+    items: rates.map((amount, i) => ({ img: officeImg, name: ['Initial / One-Time Deep Clean', 'Weekly Maintenance (4×/month)', 'Bi-Weekly Maintenance (2×/month)', 'Monthly Maintenance (1×/month)'][i], amount, unit: 'per sq. ft.', feats: [], featured: false })),
+  })),
+]
+
+function PricingCategory({ category: cat }) {
+  return (
+    <div className="price-category">
+      <ScrollReveal><h3 className="price-cat-label">{cat.label}</h3>
+        {cat.note && <p className="price-note">{cat.note}</p>}
+      </ScrollReveal>
+      <div className="price-grid price-grid-3">
+        {cat.items.map((p, i) => (
+          <ScrollReveal key={p.name} delay={i * 80}>
+            <div className={`price-card${p.featured ? ' featured' : ''}`}>
+              {p.badge && <span className="price-badge">{p.badge}</span>}
+              <img src={p.img} alt="" className="price-img" />
+              <h3 className="price-name">{p.name}</h3>
+              <p className="price-amount">{p.amount}</p>
+              <p className="price-unit">{p.unit}</p>
+              <ul className="price-feats">{p.feats.map(f => <li key={f}>{f}</li>)}</ul>
+              <Link to="/book" className="btn-price">{cat.label.includes('Residential') ? 'Book This' : 'Request an Assessment'}</Link>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const addOnGroups = [
   {
@@ -76,17 +111,7 @@ const serviceMenu = [
     note: 'Includes everything in the Maintenance Clean, plus:',
     flatItems: ['Baseboards', 'Blinds', 'Light fixtures', 'Door frames & trim', 'Cobweb removal', 'Outlet covers & switches', 'Detailed floor edges', 'Extra attention to buildup', 'Thorough cleaning of all areas'],
   },
-  {
-    name: 'Move-In / Move-Out Clean',
-    note: 'A detailed top-to-bottom cleaning to prepare a home for new occupants or leave it move-out ready.',
-    groups: [
-      { label: 'Kitchen', items: ['Clean & sanitize countertops and backsplash', 'Inside & outside of refrigerator', 'Inside & outside of oven', 'Inside & outside of microwave', 'Inside dishwasher (if applicable)', 'Cabinets, drawers & handles', 'Deep clean stovetop', 'Vacuum & mop floors'] },
-      { label: 'Bathrooms', items: ['Deep sanitizing of toilets, sinks, tubs & showers', 'Remove soap scum & buildup', 'Mirrors & fixtures', 'Cabinets & drawers', 'Vacuum & mop floors'] },
-      { label: 'Throughout the Home', items: ['Closets & shelving', 'Window sills & tracks', 'Doors, trim & baseboards', 'Ceiling fans (reachable areas)', 'Remove cobwebs', 'Vacuum carpets & floors', 'Mop hard floors', 'Spot-clean walls as needed'] },
-    ],
-    highlight: { label: 'Included at No Additional Charge', items: ['Refrigerator (inside & out)', 'Oven (inside & out)', 'Microwave (inside & out)', 'Dishwasher (if applicable)'] },
-    perfectFor: ['New homeowners', 'Sellers', 'Renters', 'Landlords'],
-  },
+
 ]
 
 function ServiceMenuItem({ item }) {
@@ -147,7 +172,27 @@ export default function Services() {
         <div className="section-inner" style={{ textAlign: 'center' }}>
           <ScrollReveal delay={0}><span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>What We Offer</span></ScrollReveal>
           <ScrollReveal delay={100}><h1 className="svc-header-title">Services &amp; Rates</h1></ScrollReveal>
-          <ScrollReveal delay={200}><p className="svc-header-sub">Eco-friendly cleaning for every need, at prices that make sense</p></ScrollReveal>
+          <ScrollReveal delay={200}><p className="svc-header-sub">Commercial spaces & property turnovers are our specialty — residential care is always available</p></ScrollReveal>
+        </div>
+      </section>
+
+      <section className="svc-pricing commercial-focus" aria-labelledby="commercial-heading">
+        <div className="section-inner">
+          <span className="section-label">Our Specialty</span>
+          <h2 id="commercial-heading" className="section-title">Commercial &amp; Turnover Cleanings</h2>
+          <p className="section-sub">Dedicated facility care for property managers, offices, salons, and corporate spaces throughout Delaware, Columbus, and surrounding areas.</p>
+          {commercialCategories.map(cat => <PricingCategory key={cat.label} category={cat} />)}
+          <div className="condition-policy">
+            <h3 className="price-cat-label">Property Condition &amp; Rate Adjustments</h3>
+            <p className="menu-note">{propertyConditionPolicy}</p>
+          </div>
+          <div className="price-note">
+            <h3>Corporate Trust &amp; Service Policies</h3>
+            <p>Fully licensed and insured, with active EIN credentials. A Certificate of Insurance (COI) and W-9 are available for vendor onboarding.</p>
+            <p>Cleaning can be scheduled outside your operating hours to minimize interruptions to staff, tenants, and clients. {hoursPolicy}</p>
+            <p>{travelPolicy}</p>
+          </div>
+          <Link to="/book" className="btn-primary commercial-cta">Book Your On-Site Assessment</Link>
         </div>
       </section>
 
@@ -156,12 +201,12 @@ export default function Services() {
         <div className="section-inner">
           <ScrollReveal><span className="section-label">What We Clean</span>
           <h2 className="section-title">Our Services</h2>
-          <p className="section-sub">Residential, commercial, hourly, deep, and move-in/move-out cleaning</p></ScrollReveal>
+          <p className="section-sub">Commercial and property turnovers, recurring residential, deep, and hourly cleaning</p></ScrollReveal>
 
           <div className="svc-grid svc-grid-4">
             {services.map((s, i) => (
               <ScrollReveal key={s.title} delay={i * 80}>
-                <div className="svc-card">
+                <div className={`svc-card${s.featured ? ' svc-card-featured' : ''}`}>
                   <div className="svc-ico">
                     {s.img ? <img src={s.img} alt={s.title} className="svc-ico-img" /> : s.ico}
                   </div>
@@ -179,32 +224,9 @@ export default function Services() {
         <div className="section-inner">
           <ScrollReveal><span className="section-label">Transparent Pricing</span>
           <h2 className="section-title">Simple, honest rates</h2>
-          <p className="section-sub">Priced per square foot — you only pay for what you need</p></ScrollReveal>
+          <p className="section-sub">Residential maintenance and deep-clean rates, plus flexible hourly service</p></ScrollReveal>
 
-          {pricingCategories.map((cat) => (
-            <div key={cat.label} className="price-category">
-              <ScrollReveal><h3 className="price-cat-label">{cat.label}</h3></ScrollReveal>
-              <div className={`price-grid price-grid-${cat.items.length <= 2 ? '2' : '3'}`}>
-                {cat.items.map((p, i) => (
-                  <ScrollReveal key={p.name} delay={i * 80}>
-                    <div className={`price-card${p.featured ? ' featured' : ''}`}>
-                      {p.badge && <span className="price-badge">{p.badge}</span>}
-                      {p.img ? <img src={p.img} alt="" className="price-img" /> : <span className="price-ico">{p.ico}</span>}
-                      <h3 className="price-name">{p.name}</h3>
-                      {p.sub && <p className="price-sub">{p.sub}</p>}
-                      <p className="price-amount">{p.amount}</p>
-                      <p className="price-unit">{p.unit}</p>
-                      <ul className="price-feats">
-                        {p.feats.map(f => <li key={f}>{f}</li>)}
-                      </ul>
-                      <Link to="/book" className="btn-price">Book This</Link>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-              {cat.note && <ScrollReveal><p className="price-note">{cat.note}</p></ScrollReveal>}
-            </div>
-          ))}
+          {pricingCategories.map(cat => <PricingCategory key={cat.label} category={cat} />)}
         </div>
       </section>
 

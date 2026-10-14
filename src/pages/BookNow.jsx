@@ -1,4 +1,4 @@
-import { petPolicy, hourlyPolicy, hoursPolicy, travelPolicy, serviceArea } from '../data/policies'
+import { petPolicy, hourlyPolicy, hoursPolicy, travelPolicy, serviceArea, propertyConditionPolicy } from '../data/policies'
 import { useEffect, useState } from 'react'
 import { Phone, Mail, Clock } from '../components/Svgs'
 import apartImg from '../assets/apart.png'
@@ -33,17 +33,18 @@ function CalEmbed() {
 
 const steps = [
   { n: '1', text: 'Reach out by call, text, or email' },
-  { n: '2', text: 'Tell us your home type & square footage' },
+  { n: '2', text: 'Tell us your property type & size' },
   { n: '3', text: 'We\'ll give you a quick quote' },
   { n: '4', text: 'Pick a date and we\'ll take it from there!' },
 ]
 
 const faqs = [
+  { q: 'What condition is required for flat-rate property turnovers?', a: propertyConditionPolicy },
   { q: 'What is your pet policy?', a: petPolicy },
   { q: 'How do hourly bookings and breaks work?', a: hourlyPolicy },
   {
     q: 'How is pricing calculated?',
-    a: 'Hourly cleaning is $45 per hour for up to 8 hours. Weekly maintenance is $0.07 per sq. ft.; bi-weekly is $0.10; monthly / standard cleaning is $0.13 per sq. ft. every 3 weeks or $0.15 per sq. ft. every 4 weeks. Deep cleaning / first-time service is $0.25–$0.50 per sq. ft., depending on initial condition and soil level, and is required for all first-time bookings. Nicotine remediation starts at $0.55 per sq. ft. Deep cleans and move-in/move-out cleans require a free in-person quote. Pet fees and applicable travel or after-hours charges are additional.',
+    a: 'Hourly cleaning is $45 per hour for up to 8 hours. Weekly maintenance is $0.07 per sq. ft.; bi-weekly is $0.10; monthly / standard cleaning is $0.13 per sq. ft. every 3 weeks or $0.15 per sq. ft. every 4 weeks. Deep cleaning / first-time service is $0.25–$0.50 per sq. ft., depending on initial condition and soil level, and is mandatory before starting any recurring residential package. Nicotine remediation starts at $0.55 per sq. ft. Property turnovers start at $165 for 1 bed / 1 bath, $215 for 2 bed / 1–2 bath, and $265 for 3 bed / 2–2.5 bath; larger units require a custom on-site quote. Commercial and deep cleaning assessments are available free in person. Pet fees and applicable travel or after-hours charges are additional.',
   },
   {
     q: 'What products do you use?',
@@ -55,15 +56,15 @@ const faqs = [
   },
   {
     q: 'What services do you offer?',
-    a: 'We offer residential maintenance, commercial cleaning for offices and specialty spaces, deep cleaning, hourly cleaning, and move-in/move-out cleaning. We do not provide hoarding cleanup, biohazard cleanup, mold remediation, or animal-waste cleanup.',
+    a: 'We specialize in commercial cleaning for offices and specialty facilities, and vacant property turnovers. We also offer recurring residential maintenance, deep cleaning, and hourly cleaning. We do not provide hoarding cleanup, biohazard cleanup, mold remediation, or animal-waste cleanup.',
   },
   {
-    q: 'How far in advance do I need to book?',
+    q: 'What are your hours and after-hours rates?',
     a: hoursPolicy,
   },
   {
     q: 'How long will my cleaning take?',
-    a: 'Cleaning times vary by service type, home size, and soil level. Hourly appointments can be booked for up to 8 hours. Deep and move-in/move-out cleans may take a full day or multiple days. Our priority is quality, not speed; your free in-person quote will establish a realistic plan.',
+    a: 'Cleaning times vary by service type, home size, and soil level. Hourly appointments can be booked for up to 8 hours. Deep cleans and property turnovers may take a full day or multiple days. Our priority is quality, not speed; your free in-person quote will establish a realistic plan.',
   },
   {
     q: 'What areas do you serve?',
@@ -102,7 +103,7 @@ export default function BookNow() {
           <ScrollReveal delay={0}><span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>Let&apos;s Get Started</span></ScrollReveal>
           <ScrollReveal delay={100}><h1 className="book-header-title">Book Your Cleaning</h1></ScrollReveal>
           <ScrollReveal delay={200}><p className="book-header-sub">
-            Ready for a spotless, eco-friendly home? Reach out and Chelsea will get back to you fast.
+            Ready for a spotless, eco-friendly space? Reach out and Chelsea will get back to you fast.
           </p></ScrollReveal>
         </div>
       </section>
@@ -113,7 +114,7 @@ export default function BookNow() {
           <ScrollReveal>
             <span className="section-label">Pick a Time</span>
             <h2 className="book-section-title">Book a Cleaning</h2>
-            <p className="book-section-sub">Book hourly service directly, or choose a free in-person quote for deep cleans and move-in/move-out cleans.</p>
+            <p className="book-section-sub">Book hourly service directly, or choose a free in-person quote for commercial spaces, property turnovers, and deep cleans.</p>
           </ScrollReveal>
           <CalEmbed />
         </div>
@@ -167,9 +168,9 @@ export default function BookNow() {
               <div className="hours-card">
                 <div className="hours-card-ico"><Clock size={22} /></div>
                 <div className="hours-card-text">
-                  <span className="hours-card-label">Wednesday – Friday</span>
-                  <span className="hours-card-value">10:00 AM – 8:00 PM</span>
-                  <span className="hours-card-days">Sunday–Tuesday: closed</span>
+                  <span className="hours-card-label">Monday – Saturday</span>
+                  <span className="hours-card-value">10:00 AM – 7:00 PM</span>
+                  <span className="hours-card-days">Regular operating hours</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -177,9 +178,9 @@ export default function BookNow() {
               <div className="hours-card">
                 <div className="hours-card-ico"><img src={apartImg} alt="" className="hours-card-img" /></div>
                 <div className="hours-card-text">
-                  <span className="hours-card-label">Saturday</span>
-                  <span className="hours-card-value">12:00 PM – 6:00 PM</span>
-                  <span className="hours-card-days">Book online based on availability</span>
+                  <span className="hours-card-label">Sunday</span>
+                  <span className="hours-card-value">Closed</span>
+                  <span className="hours-card-days">Sunday & after-hours cleanings: +15%, subject to availability</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -192,7 +193,7 @@ export default function BookNow() {
         <div className="book-inner">
           <span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>Simple Process</span>
           <h2 className="book-section-title" style={{ color: '#FFFFFF' }}>How it works</h2>
-          <p className="book-section-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Getting a clean home is easy — here&apos;s what to expect</p>
+          <p className="book-section-sub" style={{ color: 'rgba(255,255,255,0.7)' }}>Getting a clean space is easy — here&apos;s what to expect</p>
 
           <div className="steps">
             {steps.map((s, i) => (

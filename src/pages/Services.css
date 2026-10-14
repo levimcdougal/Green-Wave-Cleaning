@@ -789,3 +789,9 @@
 @media (max-width: 600px) {
   .pet-policy-grid { grid-template-columns: 1fr; }
 }
+
+.commercial-focus { border-bottom: 4px solid var(--green); }
+.condition-policy { margin-top: 2.5rem; padding: 1.5rem; background: var(--green-soft); border-left: 4px solid var(--green); border-radius: 12px; }
+.condition-policy .menu-note { margin-bottom: 0; }
+.commercial-cta { margin-top: 2rem; }
+.svc-card-featured { background: var(--green-soft); border-color: var(--green); }
