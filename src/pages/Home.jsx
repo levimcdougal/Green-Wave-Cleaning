@@ -20,12 +20,10 @@ export default function Home() {
           <div className="hero-copy">
             <ScrollReveal delay={0}><h1 className="hero-title">GreenWave Cleaning</h1></ScrollReveal>
             <ScrollReveal delay={100}><p className="hero-tagline">
-              Prioritizing eco-friendly products to take care of your space <em>and</em> the planet
+              Residential cleaning, property turnovers &amp; small commercial spaces
             </p></ScrollReveal>
             <ScrollReveal delay={200}><p className="hero-desc">
-              Top-notch eco-friendly cleaning in Columbus and Delaware, including Franklin and Delaware counties.
-              Specializing in commercial spaces and property turnovers, with residential cleaning using products
-              that are kind to your family, your pets, and our planet.
+              Providing professional cleaning services across Columbus and Franklin, Delaware, Union, and Marion counties. I specialize in residential cleanings, property turnovers, and commercial spaces, delivering spotless results to get your space ready.
             </p></ScrollReveal>
             <ScrollReveal delay={300}><div className="hero-btns">
               <Link to="/book"     className="btn-primary">Get a Free Quote</Link>
@@ -46,7 +44,7 @@ export default function Home() {
         <div className="section-inner">
           <ScrollReveal>
             <span className="section-label">Who We Are</span>
-            <h2 className="section-title">Cleaning that cares for your space &amp; the planet</h2>
+            <h2 className="section-title">Personal care for every space</h2>
           </ScrollReveal>
 
           <div className="about-grid">
@@ -54,25 +52,19 @@ export default function Home() {
               <img src={chelseaImg} alt="Chelsea, owner of GreenWave Cleaning" className="about-photo" />
               <div className="about-text">
               <p>
-                Hi, I&apos;m <em>Chelsea!</em> I&apos;m the owner of GreenWave Cleaning LLC. I bring over 5 years of professional cleaning experience to every job, and I officially licensed and launched my LLC in 2026.
+                GreenWave Cleaning provides trusted, independent cleaning services backed by professional experience. Operating as a dedicated solo cleaner, I specialize personally in reliable residential cleanings, thorough property turnovers, and small commercial spaces like offices. I work directly with homeowners, landlords, and business owners to deliver spotless results every time.
               </p>
               <p>
-                I started with residential cleaning and am now focusing on commercial spaces and property turnovers — the work and workflow I enjoy most. I help local businesses and property managers keep their spaces clean, welcoming, and ready for what comes next.
-              </p>
-              <p>
-                I continue to offer residential cleaning with eco-friendly, plant-powered products that are safe for families and pets. Truly Free remains my main cleaning brand, supporting my commitment to thoughtful care for your space and the planet.
-              </p>
-              <p>
-                Proudly serving <strong style={{ color: '#FFFFFF' }}>Columbus, Franklin County, Delaware, and Delaware County, Ohio.</strong>
+                Proudly serving <strong style={{ color: '#FFFFFF' }}>Delaware County, Franklin County, Marion County, and Union County, Ohio.</strong>
               </p>
               </div>
             </div></ScrollReveal>
 
             <div className="feature-grid">
               {[
-                { ico: null, img: leafImg, label: 'Eco-Friendly Products' },
-                { ico: null, img: houseImg, label: 'Commercial & Turnover Care' },
-                { ico: null, img: pawsImg, label: 'Pet-Safe Formulas' },
+                { ico: null, img: leafImg, label: 'Residential Care' },
+                { ico: null, img: houseImg, label: 'Property Turnover Care' },
+                { ico: null, img: pawsImg, label: 'Personal Attention' },
                 { ico: null, img: starImg, label: 'Deep & Detailed' },
               ].map((f, i) => (
                 <ScrollReveal key={f.label} delay={i * 80}><div className="feature-card">
@@ -94,7 +86,7 @@ export default function Home() {
           <ScrollReveal>
             <span className="section-label" style={{ color: 'var(--green)' }}>What We Offer</span>
             <h2 className="section-title" style={{ color: 'var(--navy)' }}>Our Services</h2>
-            <p className="section-sub">Commercial and property turnovers, residential, hourly, and deep cleaning — eco-friendly every time</p>
+            <p className="section-sub">Residential cleaning, property turnovers, small commercial spaces, hourly, and deep cleaning</p>
           </ScrollReveal>
 
           <div className="preview-cards">
@@ -113,6 +105,7 @@ export default function Home() {
           <Link to="/services" className="btn-primary" style={{ display: 'inline-block', marginTop: '2.5rem' }}>
             See All Services &amp; Rates →
           </Link>
+          <p><Link to="/services#maintenance-guide">Read the Recurring Maintenance Cleaning Service Guide →</Link></p>
         </div>
       </section>
 
@@ -120,8 +113,8 @@ export default function Home() {
       <section className="home-cta">
         <div className="home-cta-inner">
           <span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>Ready to get started?</span>
-          <h2 className="home-cta-title">Book your eco-friendly cleaning today</h2>
-          <p className="home-cta-sub">Affordable rates · Eco-friendly products · Columbus, Franklin County, Delaware &amp; Delaware County</p>
+          <h2 className="home-cta-title">Book your professional cleaning today</h2>
+          <p className="home-cta-sub">Affordable rates · Premium products · Columbus, Franklin County, Delaware &amp; Delaware County, Union County &amp; Marion County</p>
           <Link to="/book" className="btn-primary home-cta-btn">
             Book Now <img src={sprayImg} alt="" className="btn-leaf-img" />
           </Link>

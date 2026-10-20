@@ -4,7 +4,7 @@ import './Terms.css'
 const sections = [
   {
     n: '1', title: 'Services',
-    content: `GreenWave Cleaning LLC specializes in commercial cleaning and vacant property turnovers throughout Delaware and Columbus, Ohio. Residential maintenance, deep cleaning, hourly service, and specialty add-ons remain available. Truly Free is our primary eco-friendly, plant-powered cleaning line.\n\nCommercial service includes standard offices and professional spaces, plus specialty and high-traffic facilities. Contact us for a free on-site assessment. An initial deep clean is mandatory before starting any recurring residential package.`,
+    content: `GreenWave Cleaning LLC provides trusted, independent residential cleaning, property turnovers, and small commercial cleaning like offices throughout Columbus and Delaware, Franklin, Marion, and Union counties, Ohio. Services are performed by a dedicated solo cleaner. Deep cleaning, hourly service, and specialty add-ons are also available. Eco-friendly products are offered for residential cleaning.\n\nCommercial service includes standard offices and professional spaces, plus specialty and high-traffic facilities. Contact us for a free on-site assessment. An initial deep clean is mandatory before starting any recurring residential package.`,
   },
   {
     n: '2', title: 'Scheduling & Appointments',
@@ -35,8 +35,8 @@ const sections = [
     content: `Your satisfaction matters to us. If an area included in your agreed-upon cleaning checklist was missed, please notify GreenWave Cleaning LLC within 24 hours of your appointment.\n\nIf the concern falls within the original scope of work, we will gladly return to correct the area at no additional charge.\n\nThis guarantee does not apply to:\n• Permanent stains or damage\n• Hard water buildup\n• Mold or mildew staining\n• Rust or discoloration\n• Areas outside the original scope of work\n• Conditions that cannot be corrected through standard cleaning methods`,
   },
   {
-    n: '9', title: 'Eco-Friendly Products Disclaimer',
-    content: `We strive to use environmentally responsible and non-toxic cleaning products whenever possible. However:\n\n• No cleaning product can be guaranteed to be completely allergen-free or chemical-free.\n• Clients should inform us of allergies, sensitivities, pets, or special environmental concerns before service.\n• Certain stains, mold, buildup, or hazardous conditions require specialized remediation services.\n\nWe strictly do not provide cleanup for biohazards, hazardous waste, mold remediation, hoarding conditions, heavy post-construction hazards, animal waste, pet accidents, litter boxes, or heavily soiled pet areas. These conditions must be fully cleared before arrival.`,
+    n: '9', title: 'Cleaning Products & Service Scope',
+    content: `Eco-friendly products are offered for residential cleaning. Products for commercial spaces and property turnovers are selected for the needs of each property. Please note:\n\n• No cleaning product can be guaranteed to be completely allergen-free or chemical-free.\n• Clients should inform us of allergies, sensitivities, pets, or special environmental concerns before service.\n• Certain stains, mold, buildup, or hazardous conditions require specialized remediation services.\n\nWe do not provide cleanup for biohazards, hazardous waste, hoarding conditions, or heavy post-construction hazards. These conditions must be fully cleared before arrival. Detailed grout scrubbing or mold remediation and pet care logistics (including litter boxes or accident messes) are excluded from maintenance cleaning and must be scheduled and billed as extras ahead of time. Heavy lifting and furniture moving are excluded from maintenance; for safety, Chelsea cleans around large items, heavy furniture, and collapsible dog crates/playpens unless they are moved prior to arrival.`,
   },
   {
     n: '10', title: 'Client Responsibilities',
@@ -56,7 +56,7 @@ const sections = [
   },
   {
     n: '14', title: 'Pets',
-    content: `At GreenWave Cleaning LLC, we love our furry clients just as much as their owners! The safety and well-being of your pets, as well as our employees, are extremely important to us.\n\nTo ensure a safe and efficient cleaning experience, we ask that all pets be securely contained in a separate room, crate, or enclosed area during your scheduled cleaning appointment whenever possible.\n\nAlthough we use eco-friendly, non-toxic cleaning products, we also utilize professional cleaning equipment, including commercial steam-cleaning machines that reach extremely high temperatures. Keeping pets safely away from active work areas helps prevent accidental injuries, escapes, and unnecessary stress for both your pets and our team.\n\nIf your pet cannot be safely secured, please notify us before your appointment so we can discuss the best solution.\n\nGreenWave Cleaning LLC reserves the right to delay, reschedule, or discontinue service if a pet's behavior creates a safety concern for our employees or prevents us from completing the scheduled service safely.\n\nClients are responsible for informing us of any pets in the home, including those that may be protective, anxious, or have a history of aggressive behavior.`,
+    content: `At GreenWave Cleaning LLC, we love our furry clients just as much as their owners! The safety and well-being of your pets, as well as our employees, are extremely important to us.\n\nTo ensure a safe and efficient cleaning experience, we ask that all pets be securely contained in a separate room, crate, or enclosed area during your scheduled cleaning appointment whenever possible.\n\nWe utilize professional cleaning equipment, including commercial steam-cleaning machines that reach extremely high temperatures. Keeping pets safely away from active work areas helps prevent accidental injuries, escapes, and unnecessary stress for both your pets and our team.\n\nIf your pet cannot be safely secured, please notify us before your appointment so we can discuss the best solution.\n\nGreenWave Cleaning LLC reserves the right to delay, reschedule, or discontinue service if a pet's behavior creates a safety concern for our employees or prevents us from completing the scheduled service safely.\n\nClients are responsible for informing us of any pets in the home, including those that may be protective, anxious, or have a history of aggressive behavior.`,
   },
   {
     n: '15', title: 'Photography & Documentation Policy',
@@ -98,7 +98,7 @@ const sections = [
 
 const soloCleaningTimes = `At GreenWave Cleaning LLC, every home is unique. Because services are performed by a solo cleaner, the timeframes below are realistic guidelines and are not strictly guaranteed. Actual appointment length depends on square footage, soil level, bedrooms and bathrooms, pet hair, clutter, specialty surfaces, and requested add-ons.
 
-Our priority is quality — not speed. We take the time necessary to provide the detailed, non-toxic professional cleaning you expect.
+Our priority is quality — not speed. We take the time necessary to provide the detailed, professional cleaning you expect.
 
 Weekly & Biweekly Maintenance Cleaning
 • Up to 1,000 sq. ft.: 2–3 hours
@@ -132,7 +132,7 @@ const currentSections = sections.map((section) => {
     ...section,
     title: section.title.replace('Employee Safety', 'Solo Cleaner Safety'),
     content: section.content
-      .replace('throughout Delaware and Columbus, Ohio', 'throughout Columbus, Franklin County, Delaware, and Delaware County, Ohio')
+      .replace('throughout Delaware and Columbus, Ohio', 'throughout Columbus and Delaware, Franklin, Marion, and Union counties, Ohio')
       .replaceAll('our team', 'Chelsea')
       .replaceAll('our staff', 'Chelsea')
       .replaceAll('our employees', 'Chelsea')

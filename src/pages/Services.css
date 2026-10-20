@@ -515,6 +515,12 @@
 }
 
 .menu-question {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -795,3 +801,5 @@
 .condition-policy .menu-note { margin-bottom: 0; }
 .commercial-cta { margin-top: 2rem; }
 .svc-card-featured { background: var(--green-soft); border-color: var(--green); }
+
+#maintenance-guide { scroll-margin-top: 88px; }

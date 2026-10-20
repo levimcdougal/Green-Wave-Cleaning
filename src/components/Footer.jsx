@@ -8,7 +8,7 @@ export default function Footer() {
       <Link to="/">
         <img src={logo} alt="GreenWave Cleaning" className="footer-logo-img" />
       </Link>
-      <p className="footer-copy">© 2026 GreenWave Cleaning LLC · Columbus, Franklin County, Delaware &amp; Delaware County, OH</p>
+      <p className="footer-copy">© 2026 GreenWave Cleaning LLC · Columbus · Delaware, Franklin, Marion &amp; Union Counties, OH</p>
       <ul className="footer-links">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/services">Services</Link></li>

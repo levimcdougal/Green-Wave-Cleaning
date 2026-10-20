@@ -13,7 +13,7 @@ import sprayImg from '../assets/spray.png'
 import './Services.css'
 
 const services = [
-  { img: officeImg, title: 'Commercial & Turnover Cleaning', desc: 'Our specialty: reliable cleaning for property managers, offices, professional spaces, and high-traffic facilities.', featured: true },
+  { img: officeImg, title: 'Commercial & Turnover Cleaning', desc: 'Reliable cleaning for property managers and small commercial spaces like offices.', featured: true },
   { img: houseImg, title: 'Recurring Residential Cleaning', desc: 'Eco-friendly maintenance for your home, with an initial deep clean required before starting any recurring package.' },
   { img: apartImg, title: 'Deep Cleaning', desc: 'A detailed reset for your home before beginning recurring maintenance service.' },
   { img: boxImg, title: 'Hourly Cleaning', desc: 'A flexible $45-per-hour clean, tailored to your checklist, for appointments up to 8 hours.' },
@@ -97,14 +97,26 @@ const addOnGroups = [
 
 const serviceMenu = [
   {
-    name: 'Recurring Maintenance & Hourly Cleaning',
-    note: 'The detailed maintenance checklist applies to recurring visits. Hourly appointments follow your prioritized checklist for the amount of time booked.',
+    name: 'Recurring Maintenance Cleaning Service Guide',
+    note: 'To keep your home consistently fresh and beautifully maintained, my Standard Maintenance Cleaning covers the essential, high-touch areas of your living space. As a solo cleaner, I manage my time carefully to ensure every home gets the highest quality care. To keep recurring rates affordable and stay on schedule, tasks that require specialized attention, heavy lifting, or extended time are categorized as Add-On Services.',
+    clutter: 'To ensure I can clean effectively and stay on schedule, I ask that surfaces are reasonably cleared before my arrival. If an area or surface is overly cluttered, I will clean around it to protect your belongings and respect my booking timeframe.',
     groups: [
-      { label: 'Kitchen', items: ['Countertops & backsplash', 'Sink & faucet', 'Appliance exteriors', 'Microwave interior', 'Vacuum & mop floors'] },
-      { label: 'Bathrooms', items: ['Toilets, sinks & mirrors', 'Showers & tubs', 'Trash removal', 'Vacuum & mop floors'] },
-      { label: 'Bedrooms & Living Areas', items: ['Dusting', 'Mirrors & glass', 'Vacuuming', 'Mopping', 'Bed making upon request'] },
-      { label: 'Throughout the Home', items: ['Light switches & door touchpoints', 'Empty trash cans', 'Vacuum & mop accessible floors'] },
+      { label: 'Kitchen & Dining — Included', items: ['Wipe and sanitize countertops and backsplashes', 'Clean major appliance exteriors: stovetop, fridge, oven, and dishwasher', 'Wipe small countertop appliances within easy reach', 'Clean microwave interior', 'Wipe cabinet and drawer exteriors', 'Empty kitchen trash and replace liner', 'Vacuum and mop floors'] },
+      { label: 'Kitchen & Dining — Add-Ons (Extra Fee)', items: ['Wash, dry, or put away dishes', 'Detailed refrigerator or oven interior cleaning', 'Wipe or dust window blinds', 'Wash interior window glass'] },
+      { label: 'Bathrooms — Included', items: ['Scrub and sanitize toilet, bathtub, and shower stall', 'Clean and polish sinks, faucets, and vanities', 'Clean mirrors', 'Spot-clean accessible light fixtures only when visibly grimy', 'Wipe cabinet exteriors', 'Vacuum and mop floors'] },
+      { label: 'Bathrooms — Add-Ons (Extra Fee)', items: ['Wash bathroom ceilings or high walls', 'Detailed grout scrubbing or mold remediation', 'Wipe or dust window blinds'] },
+      { label: 'Bedrooms & Living Spaces — Included', items: ['Dust accessible surfaces, including end tables, mantels, and dressers', 'Wipe high-touch door handles and doorknobs', 'Empty small trash bins', 'Thoroughly vacuum carpets, rugs, and hard floors', 'Mop hard floors'] },
+      { label: 'Bedrooms & Living Spaces — Add-Ons (Extra Fee)', items: ['Vacuum pet hair from upholstered furniture', 'Laundry, folding clothes, or changing bed linens', 'Hand-wipe baseboards or light switches', 'Wipe or dust window blinds', 'Wash interior window glass'] },
     ],
+    highlight: {
+      label: 'Strictly Excluded from Maintenance Cleans (Add-On Only)',
+      note: 'The following tasks significantly change the time required for a job and must be scheduled and billed as extras ahead of time:',
+      items: ['Decluttering and organizing papers, toys, clothing, or countertop clutter require advance scheduling and extra billing.', 'Pet Care Logistics: Letting pets outside, walking dogs, or cleaning litter boxes/accident messes must be scheduled and billed as extras ahead of time.', 'Heavy Lifting & Furniture Moving: Moving large items, heavy furniture, or collapsible dog crates/playpens to vacuum underneath is excluded from maintenance. For safety, I only clean around these items unless they are moved prior to my arrival.', 'Individual blinds, window tracks, and extensive baseboard scrubbing must be scheduled and billed as extras ahead of time.'],
+    },
+  },
+  {
+    name: 'Hourly Cleaning',
+    note: 'Hourly appointments follow your prioritized checklist for the amount of time booked. Add-on tasks must be agreed upon in advance.',
   },
   {
     name: 'Deep Clean',
@@ -115,16 +127,18 @@ const serviceMenu = [
 ]
 
 function ServiceMenuItem({ item }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(item.name === 'Recurring Maintenance Cleaning Service Guide')
   return (
-    <div className={`menu-item${open ? ' open' : ''}`} onClick={() => setOpen(!open)}>
-      <div className="menu-question">
+    <div className={`menu-item${open ? ' open' : ''}`} >
+      <button type="button" className="menu-question" aria-expanded={open} onClick={() => setOpen(!open)}>
         <span>{item.name}</span>
         <span className="menu-chevron">{open ? '−' : '+'}</span>
-      </div>
+      </button>
       {open && (
         <div className="menu-body">
           {item.note && <p className="menu-note">{item.note}</p>}
+
+          {item.clutter && <p className="menu-note"><strong>My Clutter Policy: </strong>{item.clutter}</p>}
 
           {item.groups && (
             <div className="menu-groups">
@@ -148,6 +162,7 @@ function ServiceMenuItem({ item }) {
           {item.highlight && (
             <div className="menu-highlight">
               <h4>{item.highlight.label}</h4>
+              {item.highlight.note && <p>{item.highlight.note}</p>}
               <ul>
                 {item.highlight.items.map(i => <li key={i}><Check size={14} /> {i}</li>)}
               </ul>
@@ -172,15 +187,15 @@ export default function Services() {
         <div className="section-inner" style={{ textAlign: 'center' }}>
           <ScrollReveal delay={0}><span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>What We Offer</span></ScrollReveal>
           <ScrollReveal delay={100}><h1 className="svc-header-title">Services &amp; Rates</h1></ScrollReveal>
-          <ScrollReveal delay={200}><p className="svc-header-sub">Commercial spaces & property turnovers are our specialty — residential care is always available</p></ScrollReveal>
+          <ScrollReveal delay={200}><p className="svc-header-sub">Personal cleaning for homes, property turnovers, and small commercial spaces</p></ScrollReveal>
         </div>
       </section>
 
       <section className="svc-pricing commercial-focus" aria-labelledby="commercial-heading">
         <div className="section-inner">
-          <span className="section-label">Our Specialty</span>
+          <span className="section-label">Commercial &amp; Property Services</span>
           <h2 id="commercial-heading" className="section-title">Commercial &amp; Turnover Cleanings</h2>
-          <p className="section-sub">Dedicated facility care for property managers, offices, salons, and corporate spaces throughout Delaware, Columbus, and surrounding areas.</p>
+          <p className="section-sub">Personal care for property managers and small commercial spaces across Columbus and Delaware, Franklin, Marion, and Union counties.</p>
           {commercialCategories.map(cat => <PricingCategory key={cat.label} category={cat} />)}
           <div className="condition-policy">
             <h3 className="price-cat-label">Property Condition &amp; Rate Adjustments</h3>
@@ -230,7 +245,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="svc-menu">
+      <section className="svc-menu" id="maintenance-guide">
         <div className="section-inner">
           <h2 className="section-title">Pet Policy</h2>
           <p className="menu-note">{petIntro}</p>
@@ -248,7 +263,7 @@ export default function Services() {
       </section>
 
       {/* ── Full Service Menu ── */}
-      <section className="svc-menu">
+      <section className="svc-menu" id="maintenance-guide">
         <div className="section-inner">
           <ScrollReveal><span className="section-label">What&apos;s Included</span>
           <h2 className="section-title">Full Service Menu</h2>
@@ -313,7 +328,7 @@ export default function Services() {
         <div className="section-inner" style={{ textAlign: 'center' }}>
           <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>Ready to book?</span>
           <h2 className="svc-cta-title">Let&apos;s get your space sparkling</h2>
-          <p className="svc-cta-sub">Eco-friendly · Columbus, Franklin County, Delaware &amp; Delaware County</p>
+          <p className="svc-cta-sub">Columbus · Delaware, Franklin, Marion &amp; Union Counties</p>
           <Link to="/book" className="btn-primary svc-cta-btn">
             Book Now <img src={sprayImg} alt="" className="btn-leaf-img" />
           </Link>

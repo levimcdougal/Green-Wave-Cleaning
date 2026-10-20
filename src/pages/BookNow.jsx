@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: 'What products do you use?',
-    a: 'Truly Free is our primary cleaning brand. We use effective, eco-friendly, plant-powered products chosen with your family, pets, and the environment in mind.',
+    a: 'Eco-friendly products are available for residential cleaning. Products for commercial spaces and property turnovers are selected for the needs of each property.',
   },
   {
     q: 'Do I need to be home during the cleaning?',
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     q: 'What services do you offer?',
-    a: 'We specialize in commercial cleaning for offices and specialty facilities, and vacant property turnovers. We also offer recurring residential maintenance, deep cleaning, and hourly cleaning. We do not provide hoarding cleanup, biohazard cleanup, mold remediation, or animal-waste cleanup.',
+    a: 'As a dedicated solo cleaner, Chelsea provides residential cleaning, property turnovers, and small commercial cleaning like offices, plus deep and hourly cleaning. Maintenance add-ons, including detailed grout scrubbing or mold remediation and pet care logistics, must be scheduled and billed separately ahead of time. Hoarding and biohazard cleanup are not offered.',
   },
   {
     q: 'What are your hours and after-hours rates?',
@@ -103,7 +103,7 @@ export default function BookNow() {
           <ScrollReveal delay={0}><span className="section-label" style={{ color: 'rgba(255,255,255,0.75)' }}>Let&apos;s Get Started</span></ScrollReveal>
           <ScrollReveal delay={100}><h1 className="book-header-title">Book Your Cleaning</h1></ScrollReveal>
           <ScrollReveal delay={200}><p className="book-header-sub">
-            Ready for a spotless, eco-friendly space? Reach out and Chelsea will get back to you fast.
+            Ready for a spotless space? Reach out and Chelsea will get back to you fast.
           </p></ScrollReveal>
         </div>
       </section>
@@ -168,8 +168,18 @@ export default function BookNow() {
               <div className="hours-card">
                 <div className="hours-card-ico"><Clock size={22} /></div>
                 <div className="hours-card-text">
-                  <span className="hours-card-label">Monday – Saturday</span>
-                  <span className="hours-card-value">10:00 AM – 7:00 PM</span>
+                  <span className="hours-card-label">Monday – Friday</span>
+                  <span className="hours-card-value">8:00 AM – 5:00 PM</span>
+                  <span className="hours-card-days">Regular operating hours</span>
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={150}>
+              <div className="hours-card">
+                <div className="hours-card-ico"><Clock size={22} /></div>
+                <div className="hours-card-text">
+                  <span className="hours-card-label">Saturday</span>
+                  <span className="hours-card-value">12:00 PM – 6:00 PM</span>
                   <span className="hours-card-days">Regular operating hours</span>
                 </div>
               </div>
